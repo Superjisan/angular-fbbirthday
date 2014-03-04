@@ -2,7 +2,6 @@
 
 // User routes use users controller
 var users = require('../controllers/users');
-
 module.exports = function(app, passport) {
 
     app.get('/signin', users.signin);
@@ -29,6 +28,7 @@ module.exports = function(app, passport) {
     }), users.signin);
 
     app.get('/auth/facebook/callback', passport.authenticate('facebook', {
+        successRedirect: '/facebook',
         failureRedirect: '/signin'
     }), users.authCallback);
 

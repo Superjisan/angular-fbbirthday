@@ -8,6 +8,11 @@ angular.module('mean').config(['$stateProvider', '$urlRouterProvider',
 
     // states for my app
     $stateProvider
+    //   .state('facebook', {
+    //     url: '/facebook',
+    //     templateUrl: 'views/index.html'
+    // })
+
       .state('all articles', {
         url: '/articles',
         templateUrl: 'views/articles/list.html'

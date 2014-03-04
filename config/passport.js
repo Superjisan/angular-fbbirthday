@@ -13,7 +13,7 @@ var mongoose = require('mongoose'),
 module.exports = function(passport) {
 
     // Serialize the user id to push into the session
-    passport.serializeUser(function(user, done) {
+     passport.serializeUser(function(user, done) {
         done(null, user.id);
     });
 
@@ -26,6 +26,7 @@ module.exports = function(passport) {
             done(err, user);
         });
     });
+
 
     // Use local strategy
     passport.use(new LocalStrategy({
@@ -104,7 +105,9 @@ module.exports = function(passport) {
                         email: profile.emails[0].value,
                         username: profile.username,
                         provider: 'facebook',
-                        facebook: profile._json
+                        facebook: profile._json,
+                        fb_accessToken: accessToken,
+                        fb_id: profile.id
                     });
                     user.save(function(err) {
                         if (err) console.log(err);

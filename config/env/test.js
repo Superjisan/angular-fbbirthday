@@ -4,12 +4,12 @@ module.exports = {
     db: 'mongodb://localhost/mean-test',
     port: 3001,
     app: {
-        name: 'MEAN - A Modern Stack - Test'
+        name: 'Facebook-Birthday Angular App'
     },
     facebook: {
-        clientID: 'APP_ID',
-        clientSecret: 'APP_SECRET',
-        callbackURL: 'http://localhost:3000/auth/facebook/callback'
+        clientID: '739502299401603',
+        clientSecret: '8efe4a94ec9e73705edad1c56e709e11',
+        callbackURL: '/auth/facebook/callback'
     },
     twitter: {
         clientID: 'CONSUMER_KEY',
