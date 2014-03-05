@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-    db: 'mongodb://localhost/mean-dev',
+    db: 'mongodb://localhost/Facebook-Birthday',
     app: {
         name: 'Facebook-Birthday Angular App'
     },

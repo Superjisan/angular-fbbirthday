@@ -100,6 +100,7 @@ module.exports = function(passport) {
                     return done(err);
                 }
                 if (!user) {
+                    // console.log(accessToken);
                     user = new User({
                         name: profile.displayName,
                         email: profile.emails[0].value,

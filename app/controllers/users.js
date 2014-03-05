@@ -9,8 +9,9 @@ var mongoose = require('mongoose'),
 /**
  * Auth callback
  */
-exports.authCallback = function(req, res) {
+exports.authCallback = function(req, res, next) {
     res.redirect('/');
+    next();
 };
 
 /**
