@@ -30,7 +30,10 @@ module.exports = function(app, passport) {
     app.get('/auth/facebook/callback', passport.authenticate('facebook', {
         successRedirect: '/',
         failureRedirect: '/signin'
-    }), users.authCallback);
+    }), function(req, res, next) {
+        res.redirect('/birthdays/data');
+        next();
+    });
 
     // Setting the github oauth routes
     app.get('/auth/github', passport.authenticate('github', {

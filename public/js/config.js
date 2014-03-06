@@ -8,10 +8,10 @@ angular.module('fbbirthday').config(['$stateProvider', '$urlRouterProvider',
 
     // states for my app
     $stateProvider
-      .state('export bday data', {
-        url: '/birthday/data',
-        templateUrl: 'views/birthdays/list.html'
-    })
+    //   .state('export bday data', {
+    //     url: '/birthdays/data',
+    //     templateUrl: 'views/birthdays/list.html'
+    // })
       .state('all birthdates', {
         url:'/birthdays',
         templateUrl: 'views/birthdays/list.html'
