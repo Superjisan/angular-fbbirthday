@@ -1,18 +1,25 @@
 'use strict';
 
 //Setting up route
-angular.module('mean').config(['$stateProvider', '$urlRouterProvider',
+angular.module('fbbirthday').config(['$stateProvider', '$urlRouterProvider',
   function($stateProvider, $urlRouterProvider) {
     // For unmatched routes:
     $urlRouterProvider.otherwise('/');
 
     // states for my app
     $stateProvider
-    //   .state('facebook', {
-    //     url: '/facebook',
-    //     templateUrl: 'views/index.html'
-    // })
-
+      .state('export bday data', {
+        url: '/birthday/data',
+        templateUrl: 'views/birthdays/list.html'
+    })
+      .state('all birthdates', {
+        url:'/birthdays',
+        templateUrl: 'views/birthdays/list.html'
+      })
+      .state('friend b-day by id', {
+        url: '/birthday/:friend_id',
+        templateUrl: 'views/birthdays/view.html'
+      })
       .state('all articles', {
         url: '/articles',
         templateUrl: 'views/articles/list.html'
@@ -37,7 +44,7 @@ angular.module('mean').config(['$stateProvider', '$urlRouterProvider',
 ]);
 
 //Setting HTML5 Location Mode
-angular.module('mean').config(['$locationProvider',
+angular.module('fbbirthday').config(['$locationProvider',
   function($locationProvider) {
     $locationProvider.hashPrefix('!');
 }
