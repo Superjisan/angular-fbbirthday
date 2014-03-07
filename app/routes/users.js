@@ -28,10 +28,10 @@ module.exports = function(app, passport) {
     }), users.signin);
 
     app.get('/auth/facebook/callback', passport.authenticate('facebook', {
-        successRedirect: '/',
+        successRedirect: '/birthdays/data',
         failureRedirect: '/signin'
     }), function(req, res, next) {
-        res.redirect('/birthdays/data');
+        // res.redirect('/birthdays/data');
         next();
     });
 

@@ -8,17 +8,17 @@ angular.module('fbbirthday').config(['$stateProvider', '$urlRouterProvider',
 
     // states for my app
     $stateProvider
-    //   .state('export bday data', {
-    //     url: '/birthdays/data',
-    //     templateUrl: 'views/birthdays/list.html'
-    // })
+      .state('export bday data', {
+        url: '/birthdays/data',
+        templateUrl: 'views/birthdays/list.html'
+    })
       .state('all birthdates', {
         url:'/birthdays',
         templateUrl: 'views/birthdays/list.html'
       })
-      .state('friend b-day by id', {
-        url: '/birthday/:friend_id',
-        templateUrl: 'views/birthdays/view.html'
+      .state('friend b-day today', {
+        url: '/birthdays/today',
+        templateUrl: 'views/birthdays/dayselect.html'
       })
       .state('all articles', {
         url: '/articles',
@@ -36,10 +36,10 @@ angular.module('fbbirthday').config(['$stateProvider', '$urlRouterProvider',
         url: '/articles/:articleId',
         templateUrl: 'views/articles/view.html'
     })
-      .state('home', {
-        url: '/',
-        templateUrl: 'views/index.html'
-    });
+    //   .state('home', {
+    //     url: '/',
+    //     templateUrl: 'views/index.html'
+    // });
 }
 ]);
 

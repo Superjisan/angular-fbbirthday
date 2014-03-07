@@ -1,13 +1,11 @@
 {% extends '../layouts/default.html' %}
 
 {% block content %}
-    <div class="row">
-        <div class="col-md-offset-1 col-md-5">
-            <a href="/auth/facebook"><img src="/img/icons/facebook.png"></a>
-            <a href="/auth/github"><img src="/img/icons/github.png"></a>
-            <a href="/auth/twitter"><img src="/img/icons/twitter.png"></a>
-            <a href="/auth/google"><img src="/img/icons/google.png"></a>
-            <a href="/auth/linkedin"><img src="/img/icons/linkedin.png"></a>
+
+        <div class="inner cover">
+            <h1 class="cover-heading">Cover your page.</h1>
+            <a href="/auth/facebook"><img src="/img/icons/facebook.png">
+            </a>
         </div>
         <div class="col-md-6">
             {% if message && message.length  %}
@@ -17,8 +15,18 @@
                     {{ message }}
                 </div>
             </div>
-            {% endif %}
-            {% block auth %}{% endblock %}
         </div>
-    </div>
+            {% endif %}
+
+
+            {% block auth %}{% endblock %}
+        <div class="mastfoot">
+            <div class="inner">
+              <p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+            </div>
+        </div>
+
 {% endblock %}
+
+
+<!-- <a href="/auth/facebook"><img src="/img/icons/facebook.png"></a> -->
