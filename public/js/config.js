@@ -36,10 +36,10 @@ angular.module('fbbirthday').config(['$stateProvider', '$urlRouterProvider',
         url: '/articles/:articleId',
         templateUrl: 'views/articles/view.html'
     })
-    //   .state('home', {
-    //     url: '/',
-    //     templateUrl: 'views/index.html'
-    // });
+      .state('home', {
+        url: '/',
+        templateUrl: 'views/index.html'
+    });
 }
 ]);
 
