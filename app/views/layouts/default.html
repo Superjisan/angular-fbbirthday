@@ -2,24 +2,27 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="https://www.facebook.com/2008/fbml" itemscope="itemscope" itemtype="http://schema.org/Product">
 	{% include '../includes/head.html' %}
 	<body>
-        <div class="site-wrapper">
+    <div class="site-wrapper">
 
       <div class="site-wrapper-inner">
 
         <div class="cover-container">
 
           <div class="masthead clearfix">
-            <div class="inner">
-              <h3 class="masthead-brand">Cover</h3>
-              <ul class="nav masthead-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">Features</a></li>
-                <li><a href="#">Contact</a></li>
-              </ul>
-            </div>
-          </div>
-        {% include '../includes/foot.html' %}
-        </div>
+            <div class="inner" data-ng-include src="'views/header.html'"></div>
+         </div>
+    {%block content %}
+
+    {% endblock %}
+
+
+      </div>
+
     </div>
+
+        {% include '../includes/foot.html' %}
+
+
+
     </body>
 </html>
