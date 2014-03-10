@@ -8,6 +8,10 @@ angular.module('fbbirthday').config(['$stateProvider', '$urlRouterProvider',
 
     // states for my app
     $stateProvider
+        .state('facebook chat', {
+          url: '/fbchat',
+          templateUrl: 'views/index.html'
+      })
       .state('export bday data', {
         url: '/birthdays/data',
         templateUrl: 'views/birthdays/list.html'

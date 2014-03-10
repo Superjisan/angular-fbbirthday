@@ -8,9 +8,12 @@ var express = require('express'),
     mongoStore = require('connect-mongo')(express),
     flash = require('connect-flash'),
     helpers = require('view-helpers'),
-    config = require('./config');
+    config = require('./config'),
+    swig = require('swig');
 
 module.exports = function(app, passport, db) {
+    swig.setDefaults({cache: false})
+
     app.set('showStackError', true);
 
     // Prettify HTML

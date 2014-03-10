@@ -1,3 +1,6 @@
 <section data-ng-controller="IndexController">
-	<h1>This is the home view</h1>
+	<div class="inner cover" data-ng-hide ="global.authenticated">
+    <h1 class="cover-heading">Sign in With Facebook</h1>
+   <a href="/auth/facebook"><img src="/img/icons/facebook.png"></a>
+   </div>
 </section>

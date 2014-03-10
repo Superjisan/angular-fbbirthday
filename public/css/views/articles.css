@@ -1,5 +1,10 @@
 h1 {
-    text-align:center
+    text-align:center;
+    font-family: 'Cambo', serif;
+}
+
+h3 {
+  font-family: 'Cambo', serif;
 }
 
 ul.articles li:not(:last-child) {

@@ -4,8 +4,8 @@ angular.module('fbbirthday.system').controller('HeaderController', ['$scope', 'G
     $scope.global = Global;
 
     $scope.menu = [{
-        'title': 'Birthdays',
-        'link': 'birthdays'
+        'title': "Today's Birthday",
+        'link': 'birthdays/today'
     }];
 
     $scope.isCollapsed = false;
