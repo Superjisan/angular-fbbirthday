@@ -1,0 +1,22 @@
+<section ng-controller="BirthdaysController" ng-init="find()">
+<h5> Search Friends</h5>
+<input type="text" ng-model="search.name" name= "Search Friends"placeholder="Friend Name Here">
+<searchlimit></searchlimit>
+
+<form action="/fbchat" method="POST">
+<table >
+  <tr ng-repeat="birthday in birthdays | filter: search | limitTo:limitct">
+    <td name="friend_name"> {{birthday.name}} </td>
+    <td name="friend_bday"> {{birthday.birthday}}</td>
+    <td> <img src={{birthday.image.data.url}}></img></td>
+    <td> <input type="text" class="form-control" placeholder="Text input" name="message"> </td>
+    <td> <button type="submit" class="btn btn-success">Message</button> </td>
+  </tr>
+</table>
+</form>
+</section>
+
+
+
+
+

@@ -1,0 +1,15 @@
+<section ng-controller="BirthdaysController" ng-init="find()">
+
+
+<form action="/fbchat" method="POST">
+<table >
+  <tr ng-repeat="birthday in birthdays | filter: search " ng-if="isToday(birthday.birthday)">
+    <td name = "friend_name"> {{birthday.name}} </td>
+    <td name = "friend_bday"> {{birthday.birthday}}</td>
+    <td> <img src={{birthday.image.data.url}}></img></td>
+    <td name = "message"> <input type="text" class="form-control" placeholder="Text input" > </td>
+    <td> <button type="submit" class="btn btn-success">Message</button> </td>
+  </tr>
+</table>
+</form>
+</section>
