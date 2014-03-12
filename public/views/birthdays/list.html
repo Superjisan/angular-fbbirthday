@@ -14,6 +14,7 @@
       <span> {{birthday.name}} </span>
       <span> {{birthday.birthday}}</span>
       <span> <img src={{birthday.image.data.url}}></img></span>
+      <br>
       <!-- inputs that gets passed behind -->
       <span> <input type="text" class="form-control" placeholder="Text input" name="message" > </span>
       <span> <input ng-hide="global.authenticated" type="text" class="form-control" placeholder="Text input" name="friend_name" value="{{birthday.name}}">  </span>
@@ -23,9 +24,9 @@
 
     </form >
 
-    <form>
+    <form ng-controller="FacebookController" >
       <span> <input type="text" class="form-control" placeholder="Text input" name="message" > </span>
-      <span id="fbpost"> <button class="btn btn-success">Post On Wall</button> </span>
+      <span id="fbpost" ng-click="postToWall(birthday.user_id, birthday.fb_id, 'Hello World!' )"> <button class="btn btn-success">Post To Friend's Wall</button> </span>
     </form>
 
   </div>

@@ -6,9 +6,10 @@ window.angular.module('fbbirthday', [ 'ngCookies',
                                       'ui.router',
                                       'fbbirthday.system',
                                       'fbbirthday.articles',
-                                      'fbbirthday.birthdays']);
+                                      'fbbirthday.birthdays',
+                                      'fbbirthday.fbposts']);
 
 window.angular.module('fbbirthday.system', []);
 window.angular.module('fbbirthday.articles', []);
 window.angular.module('fbbirthday.birthdays', []);
-window.angular.module('fbbirthday.fbposts', [])
+window.angular.module('fbbirthday.fbposts', ['ezfb'])
