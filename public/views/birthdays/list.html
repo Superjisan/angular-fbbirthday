@@ -14,12 +14,20 @@
       <span> {{birthday.name}} </span>
       <span> {{birthday.birthday}}</span>
       <span> <img src={{birthday.image.data.url}}></img></span>
+      <!-- inputs that gets passed behind -->
       <span> <input type="text" class="form-control" placeholder="Text input" name="message" > </span>
       <span> <input ng-hide="global.authenticated" type="text" class="form-control" placeholder="Text input" name="friend_name" value="{{birthday.name}}">  </span>
       <span> <input ng-hide="global.authenticated" type="text" class="form-control" placeholder="Text input" name="friend_bday" value="{{birthday.birthday}}">  </span>
+
       <span> <button type="submit" class="btn btn-success">Message</button> </span>
 
+    </form >
+
+    <form>
+      <span> <input type="text" class="form-control" placeholder="Text input" name="message" > </span>
+      <span id="fbpost"> <button class="btn btn-success">Post On Wall</button> </span>
     </form>
+
   </div>
   </div>
 

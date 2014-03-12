@@ -28,5 +28,7 @@ angular.module('fbbirthday.birthdays')
       return today.toDateString() == temp.toDateString();
     }
 
+
+
   } ])
 

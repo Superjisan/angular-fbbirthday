@@ -11,3 +11,4 @@ window.angular.module('fbbirthday', [ 'ngCookies',
 window.angular.module('fbbirthday.system', []);
 window.angular.module('fbbirthday.articles', []);
 window.angular.module('fbbirthday.birthdays', []);
+window.angular.module('fbbirthday.fbposts', [])

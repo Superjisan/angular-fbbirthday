@@ -62,7 +62,8 @@
     "fbgraph": "~0.2.9",
     "facebook-chat": "0.0.3",
     "ltx": "~0.4.0",
-    "async": "~0.2.10"
+    "async": "~0.2.10",
+    "fb": "~0.6.2"
   },
   "devDependencies": {
     "supertest": "0.8.2",
