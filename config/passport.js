@@ -2,11 +2,11 @@
 
 var mongoose = require('mongoose'),
     LocalStrategy = require('passport-local').Strategy,
-    TwitterStrategy = require('passport-twitter').Strategy,
+    // TwitterStrategy = require('passport-twitter').Strategy,
     FacebookStrategy = require('passport-facebook').Strategy,
-    GitHubStrategy = require('passport-github').Strategy,
-    GoogleStrategy = require('passport-google-oauth').OAuth2Strategy,
-    LinkedinStrategy = require('passport-linkedin').Strategy,
+    // GitHubStrategy = require('passport-github').Strategy,
+    // GoogleStrategy = require('passport-google-oauth').OAuth2Strategy,
+    // LinkedinStrategy = require('passport-linkedin').Strategy,
     User = mongoose.model('User'),
     config = require('./config');
 
