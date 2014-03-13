@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-    db: 'mongodb://heroku_app22998139:ejcook111@ds033679.mongolab.com:33679',
+    db: process.env.MONGOLAB_URI,
     app: {
         name: 'Facebook-Birthday Angular App'
     },
