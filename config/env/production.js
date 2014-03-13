@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-    db: 'mongodb://heroku_app22998139:gnwS4etz9m5kgO8HLHnkRCZusjzxYkIB@ds033679.mongolab.com:33679',
+    db: 'mongodb://heroku_app22918578:5umji2jstcd9pfobanm3pfebf2@ds033499.mongolab.com:33499',
     app: {
         name: 'Facebook-Birthday Angular App'
     },
