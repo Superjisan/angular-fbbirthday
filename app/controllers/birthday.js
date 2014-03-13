@@ -3,7 +3,8 @@
 
 var mongoose = require('mongoose'),
     Birthday = mongoose.model('Birthday'),
-    graph = require('fbgraph');
+    graph = require('fbgraph'),
+    async = require('async');
 
 exports.exportFbData = function(req, res){
     var secretAccess = req.user.fb_accessToken;
@@ -11,7 +12,8 @@ exports.exportFbData = function(req, res){
     var ownerId = req.user.fb_id;
     var ownerName = req.user.name;
 
-    graph.get(ownerId + '/friends/?fields=id,name,birthday,picture', function(err,data){
+    //using graph to get all the data of friends
+    graph.get(ownerId + '/friends/?fields=id,name,birthday,picture.type(large)', function(err,data){
         var bdFriendData = data.data;//array of friend objects
 
         if(err){
@@ -39,10 +41,10 @@ exports.exportFbData = function(req, res){
                     });
                     num_friends++;
                 });
-                console.log("You've uploaded "+ num_friends+ " friends' bday data to " + ownerName+ "'s database.");
+                console.log("Mongoose uploaded "+ num_friends+ " friends' bday data to " + ownerName+ "'s database.");
                            }
             else {
-                console.log("You already have "+ ownerName +"'s friends' birthday data.");
+                console.log("Mongoose already have "+ ownerName +"'s friends' birthday data.");
             }
 
             res.redirect('/#!/birthdays');
@@ -66,14 +68,33 @@ exports.friend = function(req,res, next, id){
     })
 }
 
-exports.all = function(req,res) {
-    Birthday.find({"user_id" : req.user.fb_id}, function(err, friends){
-        if (err) {
-         res.render('error', {status: 500})
-        } else {
-            res.jsonp(friends)
-        }
-    })
+exports.all = function(req, res) {
+    //the req.user.fb_id was having some trouble processing at times so I made it async
+    async.waterfall([
+        function(callback) {
+            var user = req.user
+            // console.log(user)
+            var fb_id = user.fb_id
+            // console.log(fb_id)
+            callback(null,fb_id)
+        }, function(fb_id, callback) {
+            Birthday.find({"user_id" : fb_id},
+                function(err, friends){
+                    if (err) {
+                        res.render('error', {status: 500})
+                    } else {
+                        callback(null, 'done')
+                        res.jsonp(friends)
+                    }
+                })
+            }], function(err, result) {
+                if (err) {console.log(err)}
+
+            }
+        )
+
+
+
 }
 
 

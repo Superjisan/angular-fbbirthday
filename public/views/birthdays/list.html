@@ -7,36 +7,32 @@
 
 <div class = "col-md-12">
 
-  <div ng-repeat="birthday in birthdays | filter: search | limitTo:limitct">
+  <div ng-repeat="birthday in birthdays | filter: search | limitTo:limitct" ng-if="hasBirthday(birthday.birthday)">
     <div id="friend_box" class = "col-md-4">
     <form  action="/fbchat" method="POST" name='birthdayForm'>
-
-      <span> {{birthday.name}} </span>
-      <span> {{birthday.birthday}}</span>
-      <span> <img src={{birthday.image.data.url}}></img></span>
+      <div id="message_input">
+      <span id="friend_name"> {{birthday.name}} </span>
       <br>
-      <!-- inputs that gets passed behind -->
-      <span> <input type="text" class="form-control" placeholder="Text input" name="message" > </span>
-      <span> <input ng-hide="global.authenticated" type="text" class="form-control" placeholder="Text input" name="friend_name" value="{{birthday.name}}">  </span>
-      <span> <input ng-hide="global.authenticated" type="text" class="form-control" placeholder="Text input" name="friend_bday" value="{{birthday.birthday}}">  </span>
+      <span> {{birthday.birthday}}</span>
 
-      <span> <button type="submit" class="btn btn-success">Message</button> </span>
+      <br>
+      <!-- inputs that gets passed to backend -->
 
+        <span> <input id="chat_message"
+          type="text" class="form-control" placeholder="Text input" name="message" > </span>
+        <span> <input ng-hide="global.authenticated" type="text" class="form-control" placeholder="Text input" name="friend_name" value="{{birthday.name}}">  </span>
+        <span> <input ng-hide="global.authenticated" type="text" class="form-control" placeholder="Text input" name="friend_bday" value="{{birthday.birthday}}">  </span>
+        <br>
+        <span> <button id="message_button" type="submit" class="icon-chat btn btn-success">Message</button> </span>
+      </div>
+
+        <span> <img id="friend_pic" src={{birthday.image.data.url}}></img></span>
     </form >
 
-    <form ng-controller="FacebookController" >
-      <span> <input type="text" class="form-control" placeholder="Text input" name="message" > </span>
-      <span id="fbpost" ng-click="postToWall(birthday.user_id, birthday.fb_id, 'Hello World!' )"> <button class="btn btn-success">Post To Friend's Wall</button> </span>
-    </form>
+
 
   </div>
   </div>
 
 </div>
 </section>
-
-
-
-
-
-

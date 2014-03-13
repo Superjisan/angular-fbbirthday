@@ -26,6 +26,15 @@ angular.module('fbbirthday.birthdays')
       temp.setYear(0)
 
       return today.toDateString() == temp.toDateString();
+    };
+
+    $scope.hasBirthday = function(birthday){
+      if (birthday) {
+        return true
+      } else {
+        return false
+      }
+
     }
 
 

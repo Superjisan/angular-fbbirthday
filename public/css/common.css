@@ -29,6 +29,10 @@ body {
   height: 100%;
   background-color: #0066FF;
   font-family: 'Cambo', serif;
+  background-size: 100%;
+  background-image:url('http://1.bp.blogspot.com/-BRw703Xbm-c/UmlDSIejiLI/AAAAAAAADIs/MuiehA0xZkg/s1600/Cake+Happy+Birthday+Wallpaper.jpg');
+  background-repeat:no-repeat
+
 }
 body {
   color: #fff;
@@ -67,6 +71,7 @@ body {
 .masthead-brand {
   margin-top: 10px;
   margin-bottom: 10px;
+  position: absolute;
 }
 
 .masthead-nav > li {
@@ -95,6 +100,10 @@ body {
 .masthead-nav > .active > a:focus {
   color: #fff;
   border-bottom-color: #fff;
+}
+
+#app-title {
+  color: #FCFCFC;
 }
 
 @media (min-width: 768px) {
@@ -163,3 +172,4 @@ body {
     width: 700px;
   }
 }
+

@@ -4,14 +4,21 @@
   <div ng-repeat="birthday in birthdays | filter: search " ng-if="isToday(birthday.birthday)">
     <div id="friend_box" class = "col-md-4">
       <form action="/fbchat" method="POST">
-      <span name = "friend_name"> {{birthday.name}} </span>
-      <span name = "friend_bday"> {{birthday.birthday}}</span>
-      <span> <img src={{birthday.image.data.url}}></img></span>
-      <span name = "message"> <input type="text" class="form-control" placeholder="Text input" > </span>
-      <span> <button type="submit" class="btn btn-success">Message</button> </span>
+
+        <span> {{birthday.name}} </span>
+        <br>
+        <span> {{birthday.birthday}}</span>
+        <br>
+        <span> <img id="friend_pic"src={{birthday.image.data.url}}></img></span>
+
+        <span> <input type="text" class="form-control" placeholder="Text input" name="message"> </span>
+
+
+        <span> <input ng-hide="global.authenticated" type="text" class="form-control" placeholder="Text input" name="friend_name" value="{{birthday.name}}">  </span>
+        <span> <input ng-hide="global.authenticated" type="text" class="form-control" placeholder="Text input" name="friend_bday" value="{{birthday.birthday}}">  </span>
+        <span> <button type="submit" class="btn btn-success">Message</button> </span>
+
     </form>
-    <div id="friend_box" class = "col-md-4">
-  </div>
 </div>
 
 </section>
