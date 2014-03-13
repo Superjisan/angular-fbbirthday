@@ -63,12 +63,14 @@
     "facebook-chat": "0.0.3",
     "ltx": "~0.4.0",
     "async": "~0.2.10",
-    "fb": "~0.6.2"
+    "fb": "~0.6.2",
+    "node-xmpp-client": "~0.4.0",
+    "node-stringprep": "~0.2.3"
   },
   "devDependencies": {
     "supertest": "0.8.2",
     "should": "2.1.1",
-    "grunt-contrib-watch": "latest",
+    "grunt-contrib-watch": "~0.6.0",
     "grunt-contrib-jshint": "latest",
     "grunt-nodemon": "0.2.0",
     "grunt-concurrent": "latest",
