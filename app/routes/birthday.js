@@ -7,6 +7,6 @@ module.exports = function(app) {
 
     app.get('/birthdays/data', birthday.exportFbData);
     app.get('/birthdays', birthday.all)
-    // app.get('/birthdays/:friend_id', birthday.show)
+
     app.get('/birthdays/today', birthday.all)
 };

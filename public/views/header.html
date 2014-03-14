@@ -1,16 +1,29 @@
-<div class="" data ng-controller="HeaderController">
-
-  <ul class="nav masthead-nav">
-
-    <li data-ng-repeat="item in menu" data-ng-show="global.user" ui-route="/{{item.link}}" ng-class="{active: $uiRoute}">
-    <a href="#!/{{item.link}}">{{item.title}}</a>
-    </li>
-  </ul>
-
-  <ul class="masthead-nav nav pull-right" data-ng-show="global.authenticated">
+<div class="" data-ng-controller="HeaderController">
+  <div class="navbar-header">
+  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      {<span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>}
+      <a class="navbar-brand" href="/">GlanceThrough</a>
+  </div>
+    <div class="collapse navbar-collapse">
+    <ul class="navbar-nav nav">
+        <li data-ng-repeat="item in menu" data-ng-show="global.user" ui-route="/{{item.link}}" ng-class="{active: $uiRoute}">
+            <a href="#!/{{item.link}}">{{item.title}}</a>
+        </li>
+    </ul>
+    <ul class="navbar-brand navbar-nav nav pull-right" data-ng-hide="global.authenticated">
+        <li><a href="signup">Signup</a>
+        </li>
+        <li class="divider-vertical"></li>
+        <li><a href="signin">Signin</a>
+        </li>
+    </ul>
+    <ul class="navbar-nav nav pull-right" data-ng-show="global.authenticated">
         <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-        {{global.user.name}} <b class="caret"></b>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{global.user.name}}
+      <b class="caret"></b>
       </a>
             <ul class="dropdown-menu">
                 <li><a href="/signout">Signout</a>
@@ -18,6 +31,8 @@
             </ul>
         </li>
     </ul>
+     </div><!--/.nav-collapse -->
+  </div>
 </div>
 
 

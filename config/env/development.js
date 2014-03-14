@@ -3,7 +3,7 @@
 module.exports = {
     db: 'mongodb://localhost/Facebook-Birthday',
     app: {
-        name: 'Facebook-Birthday Angular App'
+        name: 'Facebook-Birthday App'
     },
     facebook: {
         clientID: '739502299401603',

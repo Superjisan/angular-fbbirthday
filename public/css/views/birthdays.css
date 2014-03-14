@@ -1,68 +1,60 @@
-ul
+/*ul
 {
 list-style-type: none;
-}
+}*/
 
-a {
+/*a {
   font-style: none;
-}
+}*/
 
 
 h1 {
-  font-size: 39pt;
+  font-size: 40px;
+  font-weight: 400;
 }
 
 /* Sign In Page */
 
 #fblogo {
   float: left;
+  border-right: thin solid white ;
 }
 
 /* Button */
 .button {
-    display: inline-block;
-    margin: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
-    -webkit-box-shadow:    0 8px 0#758ab6, 0 15px 20px #758ab6;
-    -moz-box-shadow: 0 8px 0#3b5998, 0 15px 20px #3b5998;
-    box-shadow: 0 8px 0 #758ab6, 0 15px 20px #3b5998;
-    -webkit-transition: -webkit-box-shadow .1s ease-in-out;
-    -moz-transition: -moz-box-shadow .1s ease-in-out;
-    -o-transition: -o-box-shadow .1s ease-in-out;
-    transition: box-shadow .1s ease-in-out;
-    font-size: 50px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    margin: 0 auto;
+    font-size: 40px;
     color: #fff;
     text-align: center;
+    height: 40px;
+    margin: 0 auto;
+    text-decoration: none
 }
 
 .button span {
     font-family: 'Cambo', serif;
-    display: inline-block;
-    padding: 20px 30px;
-    background-color: #ec528d;
-    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#758ab6), to(#758ab6));
-    background-image: -webkit-linear-gradient(#3b5998, #758ab6);
-    background-image: -moz-linear-gradient(#3b5998, #758ab6);
-    background-image: -o-linear-gradient(#3b5998, #758ab6);
+    display: block;
+    width: 400px;
+    padding: 10px 30px 10px 10px;
+    background-color: #3b5998;
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
     border-radius: 8px;
-    -webkit-box-shadow: inset 0 -1px 1px rgba(255, 255, 255, .15);
-    -moz-box-shadow: inset 0 -1px 1px rgba(255, 255, 255, .15);
-    box-shadow: inset 0 -1px 1px rgba(255, 255, 255, .15);
-    /*font-family: 'Pacifico', Arial, sans-serif;*/
-    line-height: 1;
-    text-shadow: 0 -1px 1px rgba(175, 49, 95, .7);
+    text-shadow: 0 -1*/px 1px rgba(175, 49, 95, .7);
     -webkit-transition: background-color .2s ease-in-out, -webkit-transform .1s ease-in-out;
     -moz-transition: background-color .2s ease-in-out, -moz-transform .1s ease-in-out;
     -o-transition: background-color .2s ease-in-out, -o-transform .1s ease-in-out;
     transition: background-color .2s ease-in-out, transform .1s ease-in-out;
+    margin: 0 auto;
+    text-decoration: none
+
 }
 
 .button:hover span {
-    background-color: #ec6a9c;
+    background-color: #758ab6;
     text-shadow: 0 -1px 1px rgba(175, 49, 95, .9), 0 0 5px rgba(255, 255, 255, .8);
 }
 
@@ -118,5 +110,19 @@ h1 {
   font-family: 'Cambo', serif;
   font-size: 18px;
   background-color: green;
+}
+
+#search {
+  background-color: orange;
+  border-radius: 10px;
+  width: 250px;
+  height: 100px;
+  padding-top: 5px;
+  padding-left: 10px
+}
+
+.birthday {
+  background-color: gray;
+  opacity: .9;
 }
 

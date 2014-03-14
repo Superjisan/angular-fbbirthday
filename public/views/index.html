@@ -1,10 +1,27 @@
-<section data-ng-controller="IndexController">
-	<div class="inner cover" data-ng-hide ="global.authenticated">
-    <!-- <h1 class="cover-heading">Sign in With Facebook</h1> -->
-    <h1 id="app-title"> JISAN'S FACEBOOK BIRTHDAY APP </h1>
-
-   <a href="/auth/facebook" class ="button"> <span> <img id="fblogo" src="/img/icons/facebook.png"> Log In With Facebook</span></a>
 
 
-   </div>
+<section id="home_page" data-ng-controller="IndexController">
+
+<div class="container" data-ng-hide ="global.authenticated">
+  <div class="row">
+    <div id="title-div" class="col-md-6 col-md-offset-3 panel panel-default">
+
+       <h1 id="app-title" class="margin-base-vertical">JISAN'S BIRTHDAY APP</h1>
+
+    </div>
+
+     <div class= "margin-base-vertical btn btn-lg btn-social-icon btn-facebook">
+      <a href="/auth/facebook" class ="button">
+      <span>
+        <img id="fblogo" src="/img/icons/facebook.png">
+        <div id="login-text"> LOG IN WITH FACEBOOK</div>
+        <div style="clear: both"> </div>
+      </span>
+      </a>
+
+    </div>
+
+  </div>
+</div>
 </section>
+
