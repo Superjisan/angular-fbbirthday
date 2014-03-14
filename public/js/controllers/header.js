@@ -6,7 +6,11 @@ angular.module('fbbirthday.system').controller('HeaderController', ['$scope', 'G
     $scope.menu = [{
         'title': "Today's Birthday",
         'link': 'birthdays/today'
-    }];
+    },
+        {
+          'title': 'All Birthdays'
+          'link' :
+        }];
 
     $scope.isCollapsed = false;
 }]);
