@@ -8,8 +8,8 @@ angular.module('fbbirthday.system').controller('HeaderController', ['$scope', 'G
         'link': 'birthdays/today'
     },
         {
-          'title': 'All Birthdays'
-          'link' :
+          'title': 'All Birthdays',
+          'link' : 'birthdays'
         }];
 
     $scope.isCollapsed = false;

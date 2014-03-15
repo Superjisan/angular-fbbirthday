@@ -1,39 +1,38 @@
 
-<br><br><br><br><br><br>
-
 <section ng-controller="BirthdaysController" ng-init="find()">
-<div id="search">
+<div id="search" class="container">
   <h3> Search Friends</h3>
   <input type="text" ng-model="search.name" name= "Search Friends"placeholder="Friend Name Here">
   <searchlimit></searchlimit>
 </div>
 
-<div class = "col-md-12">
+<div class= "container col-lg-">
 
   <div ng-repeat="birthday in birthdays | filter: search | limitTo:limitct" ng-if="hasBirthday(birthday.birthday)">
-    <div id="friend_box" class = "col-md-4">
+    <div id="friend_box" class = "container col-md-4">
     <form  action="/fbchat" method="POST" name='birthdayForm'>
       <div id="message_input">
       <span id="friend_name"> {{birthday.name}} </span>
       <br>
-      <span> {{birthday.birthday}}</span>
+      <span>Their Birthday: {{birthday.birthday}}</span>
 
-      <br>
+      <span> <img id="friend_pic" src={{birthday.image.data.url}}></img></span>
       <!-- inputs that gets passed to backend -->
 
-        <span> <input id="chat_message"
-          type="text" class="form-control" placeholder="Text input" name="message" > </span>
-        <span> <input ng-hide="global.authenticated" type="text" class="form-control" placeholder="Text input" name="friend_name" value="{{birthday.name}}">  </span>
-        <span> <input ng-hide="global.authenticated" type="text" class="form-control" placeholder="Text input" name="friend_bday" value="{{birthday.birthday}}">  </span>
+      <span> <input id="chat_message"
+        type="text" class="form-control" placeholder="Text input" name="message" > </span>
+      <span> <input ng-hide="global.authenticated" type="text" class="form-control" placeholder="Text input" name="friend_name" value="{{birthday.name}}">  </span>
+      <span> <input ng-hide="global.authenticated" type="text" class="form-control" placeholder="Text input" name="friend_bday" value="{{birthday.birthday}}">  </span>
+
         <br>
         <span> <button id="message_button" type="submit" class="icon-chat btn btn-success">Message</button> </span>
       </div>
 
-        <span> <img id="friend_pic" src={{birthday.image.data.url}}></img></span>
+
     </form >
 
 
-
+  </div>
   </div>
   </div>
 

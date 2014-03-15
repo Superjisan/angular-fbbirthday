@@ -72,26 +72,24 @@ h1 {
 }
 
 #friend_box {
-  float: left;
-  width: 355px;
-  height: 155px;
-  padding: 15px 15px 15px 5px;
+  padding: 15px 15px 15px 15px;
   margin: 10px 10px 10px 10px;
-  display: inline-block;
-  background-color: #899bc1;
+  /*display: inline-block;*/
+  background-color: #732C7B;
+  opacity: 0.8;
   -moz-border-radius: 20px;
   -webkit-border-radius: 20px;
   color: black;
   font-size: 20px;
+  text-align: center
 }
 
 #friend_pic {
-    width: 150px;
-    height: 140px;
-    float: right;
+  margin: 5px 5px 5px 5px;
 }
 
 #friend_name {
+    color: white;
     float: center;
     font-size: 24px
 }
@@ -113,7 +111,7 @@ h1 {
 }
 
 #search {
-  background-color: orange;
+  background-color: #9C8AA5 ;
   border-radius: 10px;
   width: 250px;
   height: 100px;

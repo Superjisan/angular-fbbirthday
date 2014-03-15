@@ -5,7 +5,7 @@ angular.module('fbbirthday.birthdays')
 
   function($scope, $stateParams, $location, Global, Birthdays){
     $scope.global = Global;
-    $scope.limitct = 5;
+    $scope.limitct = 10;
 
     $scope.find = function(query) {
         Birthdays.query(query, function(birthdays){
