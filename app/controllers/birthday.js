@@ -72,11 +72,13 @@ exports.all = function(req, res) {
     //the req.user.fb_id was having some trouble processing at times so I made it async
     async.waterfall([
         function(callback) {
+            if (req.user) {
             var user = req.user
             // console.log(user)
             var fb_id = user.fb_id
             // console.log(fb_id)
             callback(null,fb_id)
+            }
         }, function(fb_id, callback) {
             Birthday.find({"user_id" : fb_id},
                 function(err, friends){
