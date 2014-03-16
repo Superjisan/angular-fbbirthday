@@ -77,12 +77,15 @@ h1 {
   margin: 10px 10px 10px 10px;
   /*display: inline-block;*/
   background-color: #732C7B;
-  opacity: 0.8;
+
   -moz-border-radius: 20px;
   -webkit-border-radius: 20px;
   color: black;
   font-size: 20px;
-  text-align: center
+  text-align: center;
+  /*overflow: scroll;*/
+  z-index: 1;
+  display: block;
 }
 
 #friend_pic {
@@ -123,5 +126,14 @@ h1 {
 .birthday {
   background-color: gray;
   opacity: .9;
+}
+
+
+.dropdown-menu{
+    position:relative;
+}
+
+.send_later {
+  float: right;
 }
 
