@@ -6,6 +6,6 @@ module.exports = function(app) {
     var fbmessages = require('../controllers/fbmessages');
 
     app.post('/fbchat', fbmessages.FbMessage);
-    app.post('/fbpost', fbmessages.postWall)
+
 
 };

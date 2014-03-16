@@ -10,6 +10,10 @@ angular.module('fbbirthday.system').controller('HeaderController', ['$scope', 'G
         {
           'title': 'All Birthdays',
           'link' : 'birthdays'
+        },
+        {
+            'title' : 'Messages Scheduled',
+            'link' : 'schedules'
         }];
 
     $scope.isCollapsed = false;

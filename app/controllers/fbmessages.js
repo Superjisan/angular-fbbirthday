@@ -72,50 +72,5 @@ exports.FbMessage = function (req, res) {
         })
 }
 
-exports.postWall = function (req, res) {
 
-  var secretAccess = req.user.fb_accessToken;
-  FB.setAccessToken(secretAccess);
-
-  var wallPost = { message : req.body.message },
-  friend_id,
-  friend_name = req.body.friend_name,
-  user_id = req.user.fb_id;
-
-  Birthday.findOne({"name" : friend_name}, function(err, data){
-        if (err){console.log(err)}
-         console.log(data)
-         friend_id = data.fb_id;
-
-         // graph.post( user_id+ "/feed", wallPost, function(err, res) {
-         //    // returns the post id
-         //    console.log(res); // { id: xxxxx}
-         //    });
-
-        FB.api('', 'post', {
-                batch: [
-                    { method: 'post', relative_url: friend_id + '/feed', body:'message=' + encodeURIComponent(wallPost) }
-                ]
-            }, function (res) {
-                var res0;
-
-                if(!res || res.error) {
-                    console.log(!res ? 'error occurred' : res.error);
-                    return ;
-                }
-
-                res0 = JSON.parse(res[0].body);
-
-                if(res0.error) {
-                    console.log(res0.error);
-                } else {
-                    console.log('Post Id: ' + res0.id);
-                }
-            });
-      })
-
-
-  res.redirect('/#!/birthdays')
-
-}
 

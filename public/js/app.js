@@ -6,7 +6,8 @@ window.angular.module('fbbirthday', [ 'ngCookies',
                                       'ui.router',
                                       'fbbirthday.system',
                                       'fbbirthday.articles',
-                                      'fbbirthday.birthdays'
+                                      'fbbirthday.birthdays',
+                                      'ui.bootstrap.datetimepicker'
                                       ]);
 
 window.angular.module('fbbirthday.system', []);

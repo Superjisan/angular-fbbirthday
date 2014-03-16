@@ -18,7 +18,24 @@
         <span> <input ng-hide="global.authenticated" type="text" class="form-control" placeholder="Text input" name="friend_bday" value="{{birthday.birthday}}">  </span>
         <span> <button type="submit" class="btn btn-success">Message</button> </span>
 
-    </form>
+    </form >
+   <div class="dropdown">
+    <a class="dropdown-toggle my-toggle-select" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="">
+        <div class="input-append"><input type="text" class="input-large" data-ng-model="data.date"><span class="add-on"><i
+                class="icon-calendar"></i></span>
+        </div>
+    </a>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+        <datetimepicker data-ng-model="data.date"
+                        data-datetimepicker-config="{ dropdownSelector: '.my-toggle-select' }"></datetimepicker>
+    </ul>
 </div>
 
+
+</div>
+
+
+
 </section>
+
+

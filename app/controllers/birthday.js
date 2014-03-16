@@ -47,7 +47,7 @@ exports.exportFbData = function(req, res){
                 console.log("Mongoose already have "+ ownerName +"'s friends' birthday data.");
             }
 
-            res.redirect('/#!/birthdays');
+            res.redirect('/#!/birthdays/today');
         });
     });
 
@@ -98,6 +98,5 @@ exports.all = function(req, res) {
 
 
 }
-
 
 
