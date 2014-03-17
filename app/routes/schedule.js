@@ -6,7 +6,7 @@ module.exports = function(app) {
     var schedule = require('../controllers/schedule');
 
     app.get('/schedules', schedule.all);
-    app.post('/schedules', schedule.create);
+    app.post('/schedules/new', schedule.create);
     // app.get('/schedules/:messageid', schedule.show)
     // app.put('/schedules/:messageid', schedule.update)
 };

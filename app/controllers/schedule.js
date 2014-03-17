@@ -33,11 +33,11 @@ async.waterfall([
     //put the job in database
     var message = new Messages(req.body);
     message.user_id = req.user.fb_id;
-    message.crontimeScheduled =  time_converted;
-    message.timeScheduled = req.body.date;
+    message.cron_timeScheduled =  time_converted;
+    message.time_scheduled = req.body.date;
     message.sent = false;
     message.to_friend_name = req.body.friend_name;
-    message.to_friend_name = req.body.friend_id;
+    message.to_friend_id = req.body.friend_id;
     message.message = req.body.message;
     message.save()
 
@@ -57,7 +57,7 @@ async.waterfall([
 
   function(err, results) {
     if (err) { console.log(err)}
-    res.render('/#!/schedules')
+    res.redirect('/#!/birthdays/today')
   })
 
 }
