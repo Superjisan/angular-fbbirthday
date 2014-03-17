@@ -1,10 +1,11 @@
 var cronJob = require('cron').CronJob;
 var time = require('time');
-var async = require('async')
+var async = require('async');
+var cronTime = require('./cronTime')
 
 exports.test = function(req, res) {
 
-var test = '* * * * * *' // second, minute, hour, date, month day
+var test = '* * * * * *' // second, minute, hour, date, month, weekday
 console.log(req.body.date)
 
 async.waterfall([
@@ -13,16 +14,19 @@ async.waterfall([
     var received_data = req.body.date
     callback(null, received_data)
 }, function( received_data, callback) {
-// var cronJobs = []
-    var Second = 0;
-    var Minute = received_data.getMinutes();
-    var Hour = received_data.getHours();
-    var date = received_data.getDate();
-    var Month = received_data.getMonth();
-    var Year = received_data.getFullYear();
 
-    var cron_time= '' + Second + ' ' + Minute +  ' ' + Hour + ' ' + date + ' ' + Month + ' ' + Day;
-    console.log(cron_time)
+    var time_converted = cronTime.cronTime(received_data)
+    console.log(time_converted)
+    try {
+        var t =  new cronJob(time_converted, function(){
+            current_time = new Date();
+            console.log('test fired at: ', current_time);
+            // var stacklength = cronJobs.length
+            // cronJobs.push({stacklength : t})
+  }, null, true, "America/New_York");}
+    catch(ex) {
+      console.log("cron pattern not valid")
+    }
 
     callback(null, 'done')
 }],
@@ -31,19 +35,5 @@ async.waterfall([
     if (err) { console.log(err)}
     res.redirect('/#!/birthdays/today')
   })
-
-// try {
-// var t =  new cronJob(test, function(){
-//     current_time = new Date();
-//     console.log('test fired at: ', current_time);
-//     var stacklength = cronJobs.length
-//     cronJobs.push({stacklength : t})
-//   }, null, true, "America/New_York");}
-// catch(ex) {
-//   console.log("cron pattern not valid")
-// }
-
-// console.log(cronJobs)
-// t.stop()
 
 }
