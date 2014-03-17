@@ -7,10 +7,12 @@ window.angular.module('fbbirthday', [ 'ngCookies',
                                       'fbbirthday.system',
                                       'fbbirthday.articles',
                                       'fbbirthday.birthdays',
-                                      'ui.bootstrap.datetimepicker'
+                                      'ui.bootstrap.datetimepicker',
+                                      'fbbirthday.messages'
                                       ]);
 
 window.angular.module('fbbirthday.system', []);
 window.angular.module('fbbirthday.articles', []);
 window.angular.module('fbbirthday.birthdays', []);
+window.angular.module('fbbirthday.messages', [])
 

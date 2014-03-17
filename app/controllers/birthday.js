@@ -41,12 +41,10 @@ exports.exportFbData = function(req, res){
                     });
                     num_friends++;
                 });
-                console.log("Mongoose uploaded "+ num_friends+ " friends' bday data to " + ownerName+ "'s database.");
-                           }
+                console.log("Mongoose uploaded "+ num_friends+ " friends' bday data to " + ownerName+ "'s database.");                           }
             else {
                 console.log("Mongoose already have "+ ownerName +"'s friends' birthday data.");
             }
-
             res.redirect('/#!/birthdays/today');
         });
     });
@@ -79,7 +77,8 @@ exports.all = function(req, res) {
             // console.log(fb_id)
             callback(null,fb_id)
             }
-        }, function(fb_id, callback) {
+        },
+        function(fb_id, callback) {
             Birthday.find({"user_id" : fb_id},
                 function(err, friends){
                     if (err) {
@@ -91,12 +90,7 @@ exports.all = function(req, res) {
                 })
             }], function(err, result) {
                 if (err) {console.log(err)}
-
-            }
-        )
-
-
-
+            })
 }
 
 

@@ -1,12 +1,24 @@
 var cronJob = require('cron').CronJob;
 var time = require('time');
 var async = require('async');
-var cronTime = require('./cronTime')
+var cronTime = require('./cronTime');
+var mongoose = require('mongoose');
+var Messages = mongoose.model('ScheduledMessage');
 
-exports.test = function(req, res) {
+exports.all = function(req, res) {
+    Messages.find().populate('user_id').exec(function(err, messages){
+        if (err) {
+            res.render('error', {status: 500})
+        } else {
+            res.jsonp(messages)
+        }
+    })
+}
 
-var test = '* * * * * *' // second, minute, hour, date, month, weekday
-console.log(req.body.date)
+exports.create = function(req, res) {
+
+// var test = '* * * * * *' // second, minute, hour, date, month, weekday
+console.log(req.body)
 
 async.waterfall([
   function(callback) {
@@ -17,13 +29,25 @@ async.waterfall([
 
     var time_converted = cronTime.cronTime(received_data)
     console.log(time_converted)
+
+    //put the job in database
+    var message = new Messages(req.body);
+    message.user_id = req.user.fb_id;
+    message.crontimeScheduled =  time_converted;
+    message.timeScheduled = req.body.date;
+    message.sent = false;
+    message.to_friend_name = req.body.friend_name;
+    message.to_friend_name = req.body.friend_id;
+    message.message = req.body.message;
+    message.save()
+
+    //set the cronJob
     try {
         var t =  new cronJob(time_converted, function(){
             current_time = new Date();
             console.log('test fired at: ', current_time);
-            // var stacklength = cronJobs.length
-            // cronJobs.push({stacklength : t})
-  }, null, true, "America/New_York");}
+
+      }, null, true, "America/New_York");}
     catch(ex) {
       console.log("cron pattern not valid")
     }
@@ -33,7 +57,19 @@ async.waterfall([
 
   function(err, results) {
     if (err) { console.log(err)}
-    res.redirect('/#!/birthdays/today')
+    res.render('/#!/schedules')
   })
 
+}
+
+exports.show = function(req, res) {
+    res.jsonp(messages)
+}
+
+exports.update = function(req, res) {
+    var message = req.message
+    message = _.extend(message, req.body)
+    message.save(function(err) {
+        res.jsonp(message)
+    });
 }

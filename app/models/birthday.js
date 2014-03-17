@@ -5,7 +5,7 @@ var mongoose = require('mongoose'),
 
 //Facebook Birthday Schema
 var BirthdaySchema = new Schema({
-    user_id: {type: String, required: true},
+    user_id: {type: String, required: true, ref:'User'},
     name: String,
     fb_id: {type: String,
           required: true},
@@ -15,20 +15,14 @@ var BirthdaySchema = new Schema({
 
 BirthdaySchema.virtual("isToday").get(function(birthday){
 
-  // console.log('Entering isToday');
-  // console.log('requesterid:',requesterid)
   var today = new Date();
   today.setYear(0);
   var temp = new Date(birthday);
   temp.setYear(0);
 
-  // if(requesterid === this.user_id)
-  // {
-   return today.toDateString() == temp.toDateString();
-  // }
-  // else {
-  //   return false;
-  // }
+
+  return today.toDateString() == temp.toDateString();
+
 })
 
 BirthdaySchema.statics = {
@@ -36,6 +30,7 @@ BirthdaySchema.statics = {
     this.findOne({_id: id}).exec(cb);
   }
 }
+
 BirthdaySchema.set('toJSON', { getters: true, virtuals: true });
 BirthdaySchema.set('toObject', { getters: true, virtuals: true });
 
