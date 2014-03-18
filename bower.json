@@ -9,9 +9,10 @@
     "angular-route": "latest",
     "bootstrap": "3.0.3",
     "angular-bootstrap": "0.10.0",
-    "angular-ui-router": "#master",
+    "angular-ui-router": "latest",
     "momentjs": "~2.5.1",
     "jquery": "~2.1.0",
     "angular-bootstrap-datetimepicker": "latest"
   }
 }
+git

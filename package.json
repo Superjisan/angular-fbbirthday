@@ -1,6 +1,6 @@
 {
-  "name": "mean",
-  "description": "MEAN - A Modern Stack: MongoDB, ExpressJS, AngularJS, NodeJS. (BONUS: Passport User Support).",
+  "name": "Jisan's Birthday App",
+  "description": "Facebook Login App that lets you send scheduled messages",
   "version": "0.1.2",
   "private": false,
   "author": "Jisan the Man",
@@ -62,7 +62,6 @@
     "fb": "~0.6.2",
     "node-xmpp-client": "~0.4.0",
     "node-stringprep": "~0.2.3",
-    "node-schedule": "~0.1.13",
     "time": "~0.10.0",
     "cron": "~1.0.4"
   }
