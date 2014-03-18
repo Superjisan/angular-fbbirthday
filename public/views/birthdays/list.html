@@ -30,10 +30,20 @@
 
 
     </form >
-    <form action="/schedules" method="post">
+    <form action="/schedules/new" method="post">
+
+      <textarea type="text" class="form-control" placeholder="Text input" name="message"> </textarea>
+
+      <!-- Hidden elements to pass to backend ; friend_id, friend_name -->
+      <span> <input ng-hide="global.authenticated" type="textarea" class="form-control" placeholder="message to friend" name="friend_name" value="{{birthday.name}}">  </span>
+      <br>
+      <span> <input ng-hide="global.authenticated" type="textarea" class="form-control" placeholder="message to friend" name="friend_id" value="{{birthday.fb_id}}">  </span>
+
         <div class="dropdown">
           <a class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" data-target="#" href="#">
-            <div class="input-group"><input type="text" class="form-control ng-pristine ng-valid" data-ng-model="data.dateDropDownInput" name="date"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+            <div class="input-group">
+              <input type="text" class="form-control ng-pristine ng-valid" data-ng-model="data.dateDropDownInput" name="date">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
             </div>
           </a>
           <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
@@ -43,10 +53,10 @@
         <button id="send_later" type="submit" class="btn btn-success">Send Later</button>
     </form>
 
-  </div>
-  </div>
+    </div>
+    </div>
   </div>
 
-</div>
+
 </section>
 

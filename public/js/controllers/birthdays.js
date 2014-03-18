@@ -37,7 +37,5 @@ angular.module('fbbirthday.birthdays')
 
     }
 
-
-
   } ])
 

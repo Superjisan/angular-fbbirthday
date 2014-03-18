@@ -8,6 +8,10 @@ angular.module('fbbirthday').config(['$stateProvider', '$urlRouterProvider',
 
     // states for my app
     $stateProvider
+        .state('scheduled messages', {
+          url: '/schedules',
+          templateUrl: 'views/schedules/list.html'
+        })
         .state('facebook chat', {
           url: '/fbchat',
           templateUrl: 'views/index.html'

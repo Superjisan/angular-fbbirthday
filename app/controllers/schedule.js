@@ -1,18 +1,38 @@
+'use strict';
+
 var cronJob = require('cron').CronJob;
 var time = require('time');
 var async = require('async');
 var cronTime = require('./cronTime');
 var mongoose = require('mongoose');
 var Messages = mongoose.model('ScheduledMessage');
+var Client = require('node-xmpp-client');
+var ltx  = require('ltx');
 
 exports.all = function(req, res) {
-    Messages.find().populate('user_id').exec(function(err, messages){
-        if (err) {
-            res.render('error', {status: 500})
-        } else {
-            res.jsonp(messages)
-        }
-    })
+     async.waterfall([
+        function(callback) {
+            if (req.user) {
+            var user = req.user
+            // console.log(user)
+            var fb_id = user.fb_id
+            // console.log(fb_id)
+            callback(null,fb_id)
+            }
+        },
+        function(fb_id, callback) {
+            Messages.find({"user_id" : fb_id},
+                function(err, messages){
+                    if (err) {
+                        res.render('error', {status: 500})
+                    } else {
+                        callback(null, 'done')
+                        res.jsonp(messages)
+                    }
+                })
+            }], function(err, result) {
+                if (err) {console.log(err)}
+            })
 }
 
 exports.create = function(req, res) {
@@ -41,11 +61,43 @@ async.waterfall([
     message.message = req.body.message;
     message.save()
 
+    var facebookId = req.user.fb_id;
+    var user_name = req.user.name;
+    var friend_id = req.body.friend_id;
+    var new_message = req.body.message;
+    var friend_name = req.body.friend_name
+
     //set the cronJob
     try {
         var t =  new cronJob(time_converted, function(){
-            current_time = new Date();
+            var current_time = new Date();
             console.log('test fired at: ', current_time);
+            var client = new Client({
+                jid : '-' + facebookId + '@chat.facebook.com',
+                api_key : '739502299401603',
+                secret_key : '8efe4a94ec9e73705edad1c56e709e11',
+                access_token : req.user.fb_accessToken
+              });
+
+              console.log(req.user.fb_accessToken)
+
+              client.addListener('online', function(data) {
+                  console.log('Connected as ' + data.jid.user + '@' + data.jid.domain + '/' + data.jid.resource)
+
+                  //send message via facebook
+                  var chat = new ltx.Element('message', { to: '-' + friend_id + '@chat.facebook.com', type: 'chat' })
+                      .c('body')
+                      .t(new_message)
+
+                  client.send(chat);
+                  client.end()
+
+              // nodejs has nothing left to do and will exit
+                  console.log (user_name + " sent this text '" + new_message + "' to " + friend_name);
+
+                });
+
+
 
       }, null, true, "America/New_York");}
     catch(ex) {

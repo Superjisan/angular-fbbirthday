@@ -1,9 +1,13 @@
 <section ng-controller="MessagesController" ng-init="find()">
 
-<table class= "container col-lg-">
+<table class= "container col-lg-6">
     <tr ng-repeat='message in messages'>
-      <td>Message Send to {{message.to_friend}} <td>
+      <td> Send Message to: {{message.to_friend}} </td>
+      <td> Time to be sent: {{message.time_scheduled}}</td>
+      <td> Message: {{message.message}} </td>
+      <td> Was Message Sent: {{message.sent}}</td>
     </tr>
 
-  </div>
 </table>
+
+</section>
