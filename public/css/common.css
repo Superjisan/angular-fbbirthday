@@ -20,12 +20,13 @@ body {
 }
 
 .navbar .nav>li>a.brand {
-    padding-left:20px;
+    /*padding-left:20px;*/
     margin-left:0
 }
 
 .navbar {
   margin-bottom: 0px;
+  padding-bottom: 0px;
 }
 
 .content {

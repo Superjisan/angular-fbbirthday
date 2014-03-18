@@ -1,0 +1,58 @@
+<section ng-controller="BirthdaysController" ng-init="find()">
+
+ <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand"><a href="#">Friend's Birthdays</a>
+                </li>
+                <li><a href="#!/birthdays/this_week">Birthdays This Week
+                </li>
+                <li><a href="#!/birthdays/this_month">Birthdays This Month</a>
+                </li>
+                <li><a href="#!/birthdays/name">Search By Name</a>
+                </li>
+                <li><a href="#!/birthdays/date">Search By Birthdate</a>
+                </li>
+
+            </ul>
+        </div>
+
+
+        <div class="page-content inset container">
+          <div id="page-content-wrapper container">
+            <div class="content-header">
+              <h2> &nbsp; &nbsp; &nbsp; BIRTHDAYS THIS WEEK</h2>
+              <div id="search" class="container" ng-hide="global.authenticated">
+                <h3> Search Friends</h3>
+                <input type="text" ng-model="search.name" name="Search Friends" placeholder="Friend Name Here" >
+                <searchlimit></searchlimit>
+              </div>
+            </div>
+          </div>
+
+          <table class= "col-lg-6" id ="birthdays_box">
+              <tr>
+
+                <th> Friend Name</th>
+                <th> Birthdate</th>
+
+                <th> When to Send</th>
+              </tr>
+              <tr ng-repeat='birthday in birthdays | filter: search' ng-if="thisWeek(birthday.birthday) && hasBirthday(birthday.birthday)">
+
+                <td> {{birthday.name}} </td>
+                <td> {{birthday.birthday}}</td>
+
+                <td><button id="send_later" type="submit" class="btn btn-success">Schedule Messages</button>
+              </td>
+            </tr>
+          </table>
+        </div>
+
+
+</div>
+</section>
+
+

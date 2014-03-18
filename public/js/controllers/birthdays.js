@@ -50,6 +50,14 @@ angular.module('fbbirthday.birthdays')
       }
     }
 
+    $scope.thisMonth = function(birthday) {
+      var today = new Date();
+      today.setYear(0)
+      var today_date = today.getDate()
+      var temp = new Date(birthday)
+
+    }
+
   } ])
 
 

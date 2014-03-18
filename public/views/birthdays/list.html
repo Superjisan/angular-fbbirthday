@@ -1,55 +1,62 @@
+
 <section ng-controller="BirthdaysController" ng-init="find()">
+<div id="search" class="container">
+  <h3> Search Friends</h3>
+  <input type="text" ng-model="search.name" name= "Search Friends"placeholder="Friend Name Here">
+  <searchlimit></searchlimit>
+</div>
 
- <div id="wrapper">
+<div class= "container col-lg-">
 
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand"><a href="#">Friend's Birthdays</a>
-                </li>
-                <li><a href="/birthdays/this_week">Birthdays This Week
-                </li>
-                <li><a href="/birthdays/this_month">Birthdays This Month</a>
-                </li>
-                <li><a href="/birthdays/name">Search By Name</a>
-                </li>
-                <li><a href="/birthdays/date">Search By Birthdate</a>
-                </li>
+  <div ng-repeat="birthday in birthdays | filter: search | limitTo:limitct" ng-if="hasBirthday(birthday.birthday)">
+    <div id="friend_box" class = "container col-md-4">
+    <form  action="/fbchat" method="POST" name='birthdayForm'>
+      <div id="message_input">
+      <span id="friend_name"> {{birthday.name}} </span>
+      <br>
+      <span>Their Birthday: {{birthday.birthday}}</span>
 
-            </ul>
-        </div>
-        <div id="page-content-wrapper">
-            <div class="content-header">
-              <br><br>
-              <div id="search" class="container" ng-hide="global.authenticated">
-                <h3> Search Friends</h3>
-                <input type="text" ng-model="search.name" name="Search Friends" placeholder="Friend Name Here" >
-                <searchlimit></searchlimit>
-              </div>
-            </div>
-        <div class="page-content inset">
-          <br><br>
-          <table class= "col-lg-6" id ="birthdays_box">
-              <tr>
+      <span> <img id="friend_pic" src={{birthday.image.data.url}}></img></span>
+      <!-- inputs that gets passed to backend -->
 
-                <th> Friend Name</th>
-                <th> Birthdate</th>
-                <th> Message to Send</th>
-                <th> When to Send</th>
-              </tr>
-              <tr ng-repeat='birthday in birthdays | filter: search' ng-if="thisWeek(birthday.birthday) && hasBirthday(birthday.birthday)">
+      <span> <input id="chat_message"
+        type="text" class="form-control" placeholder="Text input" name="message" > </span>
+      <span> <input ng-hide="global.authenticated" type="text" class="form-control" placeholder="Text input" name="friend_name" value="{{birthday.name}}">  </span>
+      <span> <input ng-hide="global.authenticated" type="text" class="form-control" placeholder="Text input" name="friend_bday" value="{{birthday.birthday}}">  </span>
 
-                <td> {{birthday.name}} </td>
-                <td> {{birthday.birthday}}</td>
-                <td> <input type="text"> </td>
-                <td><button id="send_later" type="submit" class="btn btn-success">Schedule Messages</button>
-              </td>
-            </tr>
-          </table>
-        </div>
+        <br>
+        <span> <button id="message_button" type="submit" class="icon-chat btn btn-success">Message</button> </span>
       </div>
+
+
+    </form >
+    <form action="/schedules/new" method="post">
+
+      <textarea type="text" class="form-control" placeholder="Text input" name="message"> </textarea>
+
+      <!-- Hidden elements to pass to backend ; friend_id, friend_name -->
+      <span> <input ng-hide="global.authenticated" type="textarea" class="form-control" placeholder="message to friend" name="friend_name" value="{{birthday.name}}">  </span>
+      <br>
+      <span> <input ng-hide="global.authenticated" type="textarea" class="form-control" placeholder="message to friend" name="friend_id" value="{{birthday.fb_id}}">  </span>
+
+        <div class="dropdown">
+          <a class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" data-target="#" href="#">
+            <div class="input-group">
+              <input type="text" class="form-control ng-pristine ng-valid" data-ng-model="data.dateDropDownInput" name="date">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+            </div>
+          </a>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+            <datetimepicker data-ng-model="data.dateDropDownInput" data-datetimepicker-config="{ dropdownSelector: '#dropdown1' }"> </datetimepicker>
+          </ul>
+        </div>
+        <button id="send_later" type="submit" class="btn btn-success">Send Later</button>
+    </form>
+
+    </div>
+    </div>
   </div>
 
-</section>
 
+</section>
 

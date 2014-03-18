@@ -8,6 +8,14 @@ angular.module('fbbirthday').config(['$stateProvider', '$urlRouterProvider',
 
     // states for my app
     $stateProvider
+        .state('birthdays this month', {
+          url: '/birthdays/this_month',
+          templateUrl: 'views/birthdays/this_month.html'
+        })
+        .state('birthdays this week',{
+          url: '/birthdays/this_week',
+          templateUrl: 'views/birthdays/this_week.html'
+        })
         .state('scheduled messages', {
           url: '/schedules',
           templateUrl: 'views/schedules/list.html'
