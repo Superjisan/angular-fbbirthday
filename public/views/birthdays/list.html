@@ -1,117 +1,54 @@
-
 <section ng-controller="BirthdaysController" ng-init="find()">
 
-<div role="main">
-    <div class="container">
-        <section id="directives-calendar" ng-controller="CalendarCtrl">
-            <div class="page-header">
-                <h1>Friends' Birthday Calendar</h1>
+ <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand"><a href="#">Friend's Birthdays</a>
+                </li>
+                <li><a href="/birthdays/this_week">Birthdays This Week
+                </li>
+                <li><a href="/birthdays/this_month">Birthdays This Month</a>
+                </li>
+                <li><a href="/birthdays/name">Search By Name</a>
+                </li>
+                <li><a href="/birthdays/date">Search By Birthdate</a>
+                </li>
+
+            </ul>
+        </div>
+        <div id="page-content-wrapper">
+            <div class="content-header">
+              <br><br>
+              <div id="search" class="container" ng-hide="global.authenticated">
+                <h3> Search Friends</h3>
+                <input type="text" ng-model="search.name" name="Search Friends" placeholder="Friend Name Here" >
+                <searchlimit></searchlimit>
+              </div>
             </div>
-            <div class="well">
-                <div class="row-fluid">
-                    <div class="span4">
+        <div class="page-content inset">
+          <br><br>
+          <table class= "col-lg-6" id ="birthdays_box">
+              <tr>
 
-                        <div class="btn-group calTools">
-                          <button class="btn" ng-click="changeLang()">
-                            {{changeTo}}
-                          </button>
-                          <button class="btn" ng-click="addRemoveEventSource(eventSources,eventSource)">
-                            Toggle Source
-                          </button>
-                          <button type="button" class="btn btn-primary" ng-click="addEvent()">
-                            Add Event
-                          </button>
-                        </div>
+                <th> Friend Name</th>
+                <th> Birthdate</th>
+                <th> Message to Send</th>
+                <th> When to Send</th>
+              </tr>
+              <tr ng-repeat='birthday in birthdays | filter: search' ng-if="thisWeek(birthday.birthday) && hasBirthday(birthday.birthday)">
 
-                        <ul class="unstyled">
-                            <li ng-repeat="e in events">
-                                <div class="alert alert-info">
-                                    <a class="close" ng-click="remove($index)"><i class="icon-remove"></i></a>
-                                    <b> <input ng-model="e.title"></b>
-                                    {{e.start | date:"MMM dd"}} - {{e.end | date:"MMM dd"}}
-                                </div>
-                            </li>
-                        </ul>
-
-                    </div>
-
-                    <div class="span8">
-                        <tabset>
-                            <tab select="renderCalender(myCalendar1);">
-                              <tab-heading>
-                               <i class="glyphicon glyphicon-bell"></i> Calendar One
-                              </tab-heading>
-                              <div class="alert-success calAlert" ng-show="alertMessage != undefined && alertMessage != ''">
-                                <h4>{{alertMessage}}</h4>
-                              </div>
-                              <div class="btn-toolbar">
-                                <p class="pull-right lead">Calendar One View Options</p>
-                                <div class="btn-group">
-                                    <button class="btn btn-success" ng-click="changeView('agendaDay', myCalendar1)">AgendaDay</button>
-                                    <button class="btn btn-success" ng-click="changeView('agendaWeek', myCalendar1)">AgendaWeek</button>
-                                    <button class="btn btn-success" ng-click="changeView('month', myCalendar1)">Month</button>
-                                </div>
-                              </div>
-                            <div class="calendar" ng-model="eventSources" calendar="myCalendar1" config="uiConfig.calendar" ui-calendar="uiConfig.calendar"></div>
-                           </tab>
-                           <tab select="renderCalender(myCalendar2);">
-                            <tab-heading>
-                              <i class="glyphicon glyphicon-bell"></i> Calendar Two
-                            </tab-heading>
-                              <div class="alert-success calAlert" ng-show="alertMessage != undefined && alertMessage != ''">
-                                <h4>{{alertMessage}}</h4>
-                              </div>
-                              <div class="btn-toolbar">
-                                <p class="pull-right lead">Calendar Two View Options</p>
-                                <div class="btn-group">
-                                    <button class="btn btn-success" ng-click="changeView('agendaDay', myCalendar2)">AgendaDay</button>
-                                    <button class="btn btn-success" ng-click="changeView('agendaWeek', myCalendar2)">AgendaWeek</button>
-                                    <button class="btn btn-success" ng-click="changeView('month', myCalendar2)">Month</button>
-                                </div>
-                              </div>
-                            <div class="calendar" ng-model="eventSources" calendar="myCalendar2" config="uiConfig.calendar" ui-calendar="uiConfig.calendar"></div>
-                           </tab>
-                           <tab select="renderCalender(myCalendar3);">
-                            <tab-heading>
-                              <i class="glyphicon glyphicon-bell"></i> Calendar Three
-                            </tab-heading>
-                              <div class="alert-success calAlert">
-                                <h4>This calendar uses the extended form</h4>
-                              </div>
-                              <div class="btn-toolbar">
-                                <p class="pull-right lead">Calendar Three View Options</p>
-                                <div class="btn-group">
-                                    <button class="btn btn-success" ng-click="changeView('agendaDay', myCalendar3)">AgendaDay</button>
-                                    <button class="btn btn-success" ng-click="changeView('agendaWeek', myCalendar3)">AgendaWeek</button>
-                                    <button class="btn btn-success" ng-click="changeView('month', myCalendar3)">Month</button>
-                                </div>
-                              </div>
-                            <div class="calendar" ng-model="eventSources2" calendar="myCalendar3" config="uiConfig.calendar" ui-calendar="uiConfig.calendar"></div>
-                           </tab>
-                        </tabset>
-                    </div>
-                </div>
-            </div>
-
-        </section>
-    </div>
-</div>
-        <script type="text/javascript">
-
-            var _gaq = _gaq || [];
-            _gaq.push(['_setAccount', 'UA-17352735-3']);
-            _gaq.push(['_trackPageview']);
-
-            (function () {
-                var ga = document.createElement('script');
-                ga.type = 'text/javascript';
-                ga.async = true;
-                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-                var s = document.getElementsByTagName('script')[0];
-                s.parentNode.insertBefore(ga, s);
-            })();
-
-        </script>
+                <td> {{birthday.name}} </td>
+                <td> {{birthday.birthday}}</td>
+                <td> <input type="text"> </td>
+                <td><button id="send_later" type="submit" class="btn btn-success">Schedule Messages</button>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+  </div>
 
 </section>
 
