@@ -12,6 +12,11 @@
     "angular-ui-router": "latest",
     "momentjs": "~2.5.1",
     "jquery": "~2.1.0",
-    "angular-bootstrap-datetimepicker": "latest"
+    "angular-bootstrap-datetimepicker": "latest",
+    "angular-ui-calendar": "latest",
+    "jquery-ui": "~1.10.4"
+  },
+  "resolutions": {
+    "angular": "1.2.14"
   }
 }

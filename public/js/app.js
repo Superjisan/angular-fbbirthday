@@ -9,10 +9,11 @@ window.angular.module('fbbirthday', [ 'ngCookies',
                                       'fbbirthday.birthdays',
                                       'ui.bootstrap.datetimepicker',
                                       'fbbirthday.messages'
+
                                       ]);
 
 window.angular.module('fbbirthday.system', []);
 window.angular.module('fbbirthday.articles', []);
-window.angular.module('fbbirthday.birthdays', []);
+window.angular.module('fbbirthday.birthdays', ['ui.calendar']);
 window.angular.module('fbbirthday.messages', [])
 

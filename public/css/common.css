@@ -9,7 +9,7 @@ html {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  background-color: #7B5CBF;
+  /*background-color: #7B5CBF;*/
 }
 
 body {

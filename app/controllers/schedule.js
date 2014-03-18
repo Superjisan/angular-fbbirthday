@@ -40,6 +40,7 @@ exports.create = function(req, res) {
 // var test = '* * * * * *' // second, minute, hour, date, month, weekday
 console.log(req.body)
 
+//I don't think I need to do this.
 async.waterfall([
   function(callback) {
 
@@ -61,6 +62,7 @@ async.waterfall([
     message.message = req.body.message;
     message.save()
 
+    //for facebook chat
     var facebookId = req.user.fb_id;
     var user_name = req.user.name;
     var friend_id = req.body.friend_id;
