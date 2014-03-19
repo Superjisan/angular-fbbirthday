@@ -43,7 +43,6 @@ angular.module('fbbirthday.birthdays')
     $scope.thisWeek = function(birthday) {
       var today = new Date();
       today.setYear(0)
-      var today_date = today.getDate()
       var temp = new Date(birthday)
       temp.setYear(0)
       if (dateDiffInDays(today, temp) < 7 && dateDiffInDays(today, temp) > 0) {
@@ -51,15 +50,20 @@ angular.module('fbbirthday.birthdays')
       } else {
         return false
       }
-    }
+    };
 
     $scope.thisMonth = function(birthday) {
       var today = new Date();
       today.setYear(0)
       var today_date = today.getDate()
       var temp = new Date(birthday)
-
-    }
+      temp.setYear(0)
+      if (today.getMonth() === temp.getMonth() && dateDiffInDays(today,temp) > 0) {
+        return true
+      } else {
+       return  false
+      }
+    };
 
   } ])
 
