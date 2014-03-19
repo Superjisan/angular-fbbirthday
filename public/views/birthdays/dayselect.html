@@ -1,52 +1,76 @@
 <section ng-controller="BirthdaysController" ng-init="find()">
 
+  <div id="wrapper">
 
-  <div ng-repeat="birthday in birthdays | filter: search " ng-if="isToday(birthday.birthday)">
-    <div id="friend_box" class = "col-md-4">
-      <form action="/fbchat" method="POST">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand"><a href="#">Friend's Birthdays</a>
+                </li>
+                <li><a href="#!/birthdays/this_week">Birthdays This Week
+                </li>
+                <li><a href="#!/birthdays/this_month">Birthdays This Month</a>
+                </li>
+                <li><a href="#!/birthdays">Search By Name</a>
+                </li>
+                <li><a href="#!/birthdays/date">Search By Birthdate</a>
+                </li>
 
-        <span> {{birthday.name}} </span>
-        <br>
-        <span> {{birthday.birthday}}</span>
-        <br>
-
-        <span> <img id="friend_pic"src={{birthday.image.data.url}}></img></span>
-
-        <span> <input type="text" class="form-control" placeholder="Message to Friend" name="message"> </span>
-
-<!-- Hidden Forms to send to backend: name,fb_id,  -->
-        <span> <input ng-hide="global.authenticated" type="text" class="form-control" placeholder="message to friend" name="friend_name" value="{{birthday.name}}">  </span>
-        <span> <input ng-hide="global.authenticated" type="textarea" class="form-control" placeholder="message to friend" name="friend_id" value="{{birthday.fb_id}}">  </span>
-
-        <span> <button type="submit" class="btn btn-success">Message</button> </span>
-
-      </form >
-
-    <form action="/schedules/new" method="post">
-
-      <textarea type="text" class="form-control" placeholder="Text input" name="message"> </textarea>
-
-      <!-- Hidden elements to pass to backend ; friend_id, friend_name -->
-      <span> <input ng-hide="global.authenticated" type="textarea" class="form-control" placeholder="message to friend" name="friend_name" value="{{birthday.name}}">  </span>
-      <br>
-      <span> <input ng-hide="global.authenticated" type="textarea" class="form-control" placeholder="message to friend" name="friend_id" value="{{birthday.fb_id}}">  </span>
-
-        <div class="dropdown">
-          <a class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" data-target="#" href="#">
-            <div class="input-group">
-              <input type="text" class="form-control ng-pristine ng-valid" data-ng-model="data.dateDropDownInput" name="date">
-              <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-            </div>
-          </a>
-          <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-            <datetimepicker data-ng-model="data.dateDropDownInput" data-datetimepicker-config="{ dropdownSelector: '#dropdown1' }"> </datetimepicker>
-          </ul>
+            </ul>
         </div>
-        <button id="send_later" type="submit" class="btn btn-success">Send Later</button>
-    </form>
-  </div>
+  <div class="page-content inset container">
+      <div id="page-content-wrapper container">
+        <div class="content-header">
+          <h2> &nbsp; &nbsp; &nbsp; TODAY'S BIRTHDAYS</h2>
+        </div>
 
-</div>
+          <div ng-repeat="birthday in birthdays | filter: search " ng-if="isToday(birthday.birthday)">
+            <div id="friend_box" class = "col-md-4">
+              <form action="/fbchat" method="POST">
+                <span> {{birthday.name}} </span>
+                <br>
+                <span> {{birthday.birthday}}</span>
+                <br>
+                <span> <img id="friend_pic"src={{birthday.image.data.url}}></img></span>
+
+                <span> <input type="text" class="form-control" placeholder="Message to Friend" name="message"> </span>
+
+        <!-- Hidden Forms to send to backend: name,fb_id,  -->
+                <span> <input ng-hide="global.authenticated" type="text" class="form-control" placeholder="message to friend" name="friend_name" value="{{birthday.name}}">  </span>
+                <span> <input ng-hide="global.authenticated" type="textarea" class="form-control" placeholder="message to friend" name="friend_id" value="{{birthday.fb_id}}">  </span>
+
+                <span> <button type="submit" class="btn btn-success">Message</button> </span>
+
+              </form >
+
+            <form action="/schedules/new" method="post">
+
+              <textarea type="text" class="form-control" placeholder="Text input" name="message"> </textarea>
+
+              <!-- Hidden elements to pass to backend ; friend_id, friend_name -->
+              <span> <input ng-hide="global.authenticated" type="textarea" class="form-control" placeholder="message to friend" name="friend_name" value="{{birthday.name}}">  </span>
+              <br>
+              <span> <input ng-hide="global.authenticated" type="textarea" class="form-control" placeholder="message to friend" name="friend_id" value="{{birthday.fb_id}}">  </span>
+
+                <div class="dropdown">
+                  <a class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" data-target="#" href="#">
+                    <div class="input-group">
+                      <input type="text" class="form-control ng-pristine ng-valid" data-ng-model="data.dateDropDownInput" name="date">
+                      <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                    </div>
+                  </a>
+                  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                    <datetimepicker data-ng-model="data.dateDropDownInput" data-datetimepicker-config="{ dropdownSelector: '#dropdown1' }"> </datetimepicker>
+                  </ul>
+                </div>
+                <button id="send_later" type="submit" class="btn btn-success">Send Later</button>
+            </form>
+          </div> <!--friend_box -->
+
+        </div> <!--ng_repeat -->
+      </div> <!--page-content wrapper -->
+    </div> <!--page content -->
+  </div> <!--wrapper -->
 
 
 

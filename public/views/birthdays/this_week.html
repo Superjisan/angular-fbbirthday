@@ -32,16 +32,13 @@
             </div>
           </div>
 
-          <table class= "col-lg-6" id ="birthdays_box">
+          <table class= "table table-hover table-responsive" id ="birthdays_box">
               <tr>
-
                 <th> Friend Name</th>
                 <th> Birthdate</th>
-
-                <th> When to Send</th>
+                <th> Send Messages</th>
               </tr>
               <tr ng-repeat='birthday in birthdays | filter: search' ng-if="thisWeek(birthday.birthday) && hasBirthday(birthday.birthday)">
-
                 <td> {{birthday.name}} </td>
                 <td> {{birthday.birthday}}</td>
 

@@ -2,24 +2,32 @@
 
 <section id="home_page" data-ng-controller="IndexController">
 
-<div class="container" data-ng-hide ="global.authenticated">
-  <div class="row">
-    <div id="title-div" class="col-md-6 col-md-offset-3 panel panel-default">
+<div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 panel panel-default">
 
-       <h1 id="app-title" class="margin-base-vertical">JISAN'S BIRTHDAY APP</h1>
+                <h1 class="margin-base-vertical">JISAN'S BIRTHDAY APP</h1>
 
-    </div>
-  </div>
-  <div class= "margin-base-vertical container">
-      <a href="/auth/facebook" class ="button">
-      <span>
-        <img id="fblogo" src="/img/icons/facebook.png">
-        <div id="login-text"> LOG IN WITH FACEBOOK</div>
-        <div style="clear: both"> </div>
-      </span>
-      </a>
 
-    </div>
-</div>
+
+                <form class="margin-base-vertical">
+
+                    <p class="help-block text-center">
+                    <p class="text-center">
+                        <a href='/auth/facebook'class="btn btn-lg btn-default btn-social btn-facebook">
+          <i class="fa fa-facebook"></i> Sign In With Facebook</a>
+                    </p>
+                    <small>We won't share your data with anyone.</small></p>
+
+                </form>
+
+                <div class="margin-base-vertical">
+
+                </div>
+
+            </div><!-- //main content -->
+        </div><!-- //row -->
+    </div> <!-- //container -->
+
 </section>
 

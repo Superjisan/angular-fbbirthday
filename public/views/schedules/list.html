@@ -1,12 +1,41 @@
 <section ng-controller="MessagesController" ng-init="find()">
 
-<table class= "container col-lg-6">
-    <tr ng-repeat='message in messages'>
-      <td> Send Message to: {{message.to_friend}} </td>
-      <td> Time to be sent: {{message.time_scheduled}}</td>
-      <td> Message: {{message.message}} </td>
-      <td> Was Message Sent: {{message.sent}}</td>
-    </tr>
-</table>
+<div id="wrapper">
+
+  <!-- Sidebar -->
+  <div id="sidebar-wrapper">
+      <ul class="sidebar-nav">
+          <li>
+            <a href="#!/schedules">{{global.user.name}}'s Messages</a>
+          </li>
+
+
+      </ul>
+  </div>
+
+  <div class="page-content inset container">
+          <div id="page-content-wrapper container">
+            <div class="content-header">
+              <h2> &nbsp; &nbsp; &nbsp; YOUR MESSAGES</h2>
+
+            </div>
+          </div>
+
+      <table class= "table table-hover table-responsive">
+          <tr>
+                <th> Send Message To</th>
+                <th> Send At</th>
+                <th> Message Text</th>
+                <th> Was Message Sent</th>
+              </tr>
+          <tr ng-repeat='message in messages'>
+            <td>  {{message.to_friend_name}} </td>
+            <td>  {{message.time_scheduled}}</td>
+            <td>  {{message.message}} </td>
+            <td>  {{message.sent}}</td>
+          </tr>
+      </table>
+
+  </div>
 
 </section>
