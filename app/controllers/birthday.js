@@ -53,7 +53,32 @@ exports.exportFbData = function(req, res){
 };
 
 exports.show = function(req, res){
-  res.jsonp(req.user.fb_id);
+
+  async.waterfall([
+        function(callback) {
+            if (req.user) {
+            var user = req.user
+            // console.log(user)
+            var fb_id = user.fb_id
+            var friend_id = req.params.facebookid;
+            // console.log(fb_id)
+            callback(null,fb_id, friend_id)
+
+            }
+        },
+        function(fb_id, friend_id, callback) {
+            Birthday.findOne({"fb_id" : friend_id},
+                function(err, friend){
+                    if (err) {
+                        res.render('error', {status: 500})
+                    } else {
+                        callback(null, 'done')
+                        res.jsonp(friend)
+                    }
+                })
+            }], function(err, result) {
+                if (err) {console.log(err)}
+            })
 }
 
 exports.friend = function(req,res, next, id){

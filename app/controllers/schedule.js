@@ -111,7 +111,7 @@ async.waterfall([
 
   function(err, results) {
     if (err) { console.log(err)}
-    res.redirect('/#!/birthdays/today')
+    res.redirect('/#!/schedules')
   })
 
 }

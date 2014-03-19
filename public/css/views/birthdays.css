@@ -89,7 +89,8 @@ list-style-type: none;
 }
 
 #friend_pic {
-  margin: 5px 5px 5px 5px;
+  margin: 0 auto;
+
 }
 
 #friend_name {

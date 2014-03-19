@@ -9,4 +9,5 @@ module.exports = function(app) {
     app.get('/birthdays', birthday.all)
 
     app.get('/birthdays/today', birthday.all)
+    app.get('/birthdays/friends/:facebookid', birthday.show )
 };

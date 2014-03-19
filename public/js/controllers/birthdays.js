@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('fbbirthday.birthdays')
-  .controller('BirthdaysController', ['$scope', '$stateParams', '$location', 'Global', 'Birthdays',
+  .controller('BirthdaysController', ['$scope', '$stateParams', '$location', 'Global', 'Birthdays', 'Friends',
 
-  function($scope, $stateParams, $location, Global, Birthdays){
+  function($scope, $stateParams, $location, Global, Birthdays, Friends){
     $scope.global = Global;
     $scope.limitct = 10;
 
@@ -13,10 +13,13 @@ angular.module('fbbirthday.birthdays')
         })
       }
 
-    $scope.findOne = function(){
-        Birthdays.get({birthdayId: $stateParams.userId}, function(birthday){
-            $scope.birthday = birthday;
-        })
+    $scope.findOne = function(query){
+      // console.log("here");
+      // debugger;
+              $scope.friend = Friends.get({userId: $stateParams.facebookid })
+        // Birthdays.query(query, function(friend){
+        //     $scope.friend = friend;
+        // })
       };
 
     $scope.isToday = function(birthday){

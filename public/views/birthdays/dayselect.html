@@ -49,21 +49,22 @@
 
               <!-- Hidden elements to pass to backend ; friend_id, friend_name -->
               <span> <input ng-hide="global.authenticated" type="textarea" class="form-control" placeholder="message to friend" name="friend_name" value="{{birthday.name}}">  </span>
-              <br>
+
               <span> <input ng-hide="global.authenticated" type="textarea" class="form-control" placeholder="message to friend" name="friend_id" value="{{birthday.fb_id}}">  </span>
 
-                <div class="dropdown">
-                  <a class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" data-target="#" href="#">
-                    <div class="input-group">
-                      <input type="text" class="form-control ng-pristine ng-valid" data-ng-model="data.dateDropDownInput" name="date">
-                      <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-                    </div>
-                  </a>
-                  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                    <datetimepicker data-ng-model="data.dateDropDownInput" data-datetimepicker-config="{ dropdownSelector: '#dropdown1' }"> </datetimepicker>
-                  </ul>
-                </div>
-                <button id="send_later" type="submit" class="btn btn-success">Send Later</button>
+              <!-- Time Date Picker-->
+              <div class="dropdown">
+                <a class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" data-target="#" href="#">
+                  <div class="input-group">
+                    <input type="text" class="form-control ng-pristine ng-valid" data-ng-model="data.dateDropDownInput" name="date">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                  </div>
+                </a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                  <datetimepicker data-ng-model="data.dateDropDownInput" data-datetimepicker-config="{ dropdownSelector: '#dropdown1' }"> </datetimepicker>
+                </ul>
+              </div>
+              <button id="send_later" type="submit" class="btn btn-success">Send Later</button>
             </form>
           </div> <!--friend_box -->
 
