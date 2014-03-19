@@ -1,0 +1,81 @@
+<section ng-controller="BirthdaysController" ng-init="findOne()">
+
+<div id="wrapper">
+  <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand"><a href="#">Friend's Birthdays</a>
+                </li>
+                <li><a href="#!/birthdays/this_week">Birthdays This Week
+                </li>
+                <li><a href="#!/birthdays/this_month">Birthdays This Month</a>
+                </li>
+                <li><a href="#!/birthdays/name">Search By Name</a>
+                </li>
+                <li><a href="#!/birthdays/date">Search By Birthdate</a>
+                </li>
+
+            </ul>
+        </div> <!-- sidebar wrapper-->
+
+  <div class="page-content inset container">
+    <div id="page-content-wrapper container">
+      <div class="col-sm-5"><!-- left main-content -->
+
+        <div class="panel panel-default" >
+          <div class="panel-body">
+            <p class="lead">{{friend.name}}</p>
+
+          <div class="panel-thumbnail">
+            &nbsp; &nbsp; &nbsp;
+            <img src={{friend.image.data.url}} class="img-responsive" id="friend_pic">
+          </div>
+
+          <br>
+            <p class="lead">Friend's Birthday: {{friend.birthday}}</p>
+
+        </div>
+      </div>
+      </div><!-- left - main content-->
+
+      <div class="col-sm-7">
+
+        <div class="well">
+           <form class="form" action="/schedules/new" method="post">
+            <h4>When do you want to send them a message?</h4>
+            <div class="dropdown">
+                  <a class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" data-target="#" href="#">
+                    <div class="input-group">
+                      <input type="text" class="form-control ng-pristine ng-valid" data-ng-model="data.dateDropDownInput" name="date">
+                      <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                    </div>
+                  </a>
+                  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                    <datetimepicker data-ng-model="data.dateDropDownInput" data-datetimepicker-config="{ dropdownSelector: '#dropdown1' }"> </datetimepicker>
+                  </ul>
+                </div>
+
+            <!-- Hidden elements to pass to backend ; friend_id, friend_name -->
+              <span> <input ng-hide="global.authenticated" type="textarea" class="form-control" placeholder="message to friend" name="friend_name" value="{{birthday.name}}">  </span>
+
+              <span> <input ng-hide="global.authenticated" type="textarea" class="form-control" placeholder="message to friend" name="friend_id" value="{{birthday.fb_id}}">  </span>
+
+            <div class="input-group ">
+            <h4>What message do you want to send?</h4>
+            <textarea type="text" class="form-control" placeholder="Happy Birthday {{friend.name}}!" name="message"> </textarea>
+
+            </div>
+            <br>
+            <button id="send_later" type="submit" class="btn btn-success">Schedule Message</button>
+          </form>
+        </div>
+      </div> <!-- -->
+
+
+
+
+          </div> <!-- content wrapper-->
+  </div> <!-- inset container -->
+
+  </div>
+
+</section>
