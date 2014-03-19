@@ -68,6 +68,7 @@ async.waterfall([
     var friend_id = req.body.friend_id;
     var new_message = req.body.message;
     var friend_name = req.body.friend_name
+    var time_sent = req.body.date
 
     //set the cronJob
     try {
@@ -99,13 +100,18 @@ async.waterfall([
 
                 });
 
+              t.stop()
 
-
-      }, null, true, "America/New_York");}
+      }, function() {
+          console.log("Message scheduled at" + time_sent + " is sent!")
+        Messages.update({"time_scheduled": time_sent}, {"sent": true},
+         function (err, res) {
+          console.log(err)
+          })
+      }, true, "America/New_York");}
     catch(ex) {
       console.log("cron pattern not valid")
     }
-
     callback(null, 'done')
 }],
 
