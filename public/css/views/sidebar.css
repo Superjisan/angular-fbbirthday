@@ -1,5 +1,5 @@
 #wrapper {
-  padding-left: 250px;
+  border-left: 250px solid #000;
   transition: all 0.4s ease 0s;
 }
 
