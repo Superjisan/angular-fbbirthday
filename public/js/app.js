@@ -10,7 +10,11 @@ window.angular.module('fbbirthday', [ 'ngCookies',
                                       'ui.bootstrap.datetimepicker',
                                       'fbbirthday.messages'
 
-                                      ]);
+                                      ])
+.config(function($interpolateProvider) {
+    $interpolateProvider.startSymbol('[[');
+    $interpolateProvider.endSymbol(']]');
+  });
 
 window.angular.module('fbbirthday.system', []);
 window.angular.module('fbbirthday.articles', []);

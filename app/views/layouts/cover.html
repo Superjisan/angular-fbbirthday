@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+    <title>{% block title %}Jisan's Facebook Birthday App{% endblock %}</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/cover.css">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    {% include '../includes/head.html' %}
+  </head>
+
+  <body>
+    <div class="site-wrapper">
+      <div class="site-wrapper-inner">
+        <div class="cover-container">
+          <div class="masthead clearfix">
+            <div class="inner">
+
+
+<!--               <ul class="nav masthead-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">Contact</a></li>
+              </ul> -->
+            </div>
+          </div>
+          {% block pagecontent %}
+            {% if !req.user %}
+            <div class="inner cover">
+                <h1 class="cover-heading">Jisan's Facebook Birthday App</h1>
+                <p class="lead"> A simple way to schedule personal messages to friends on their special day!</p>
+                <p class="lead">
+                  <a href="/auth/facebook" class="btn btn-lg btn-default btn-social btn-facebook">
+                    <i class="fa fa-facebook"></i> Sign In With Facebook</a>
+                </p>
+                <div class="mastfoot">
+                <div class="inner">
+                  <p>This app is still in development, please e-mail jzthegreat@gmail.com if you want access to it.</p>
+                </div>
+          </div>
+            </div>
+            {% else %}
+            <div class="inner cover">
+
+            </div>
+            {% endif %}
+          {% endblock %}
+
+
+
+
+        </div>
+
+      </div>
+      <div id='big-mask'></div>
+
+
+    </div>
+    {# {{ req.user | json |safe }} #}
+
+    {% block content %}
+    {% endblock %}
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+      <script type="text/javascript" src="/lib/jquery/dist/jquery.min.js"></script>
+      <script type="text/javascript" src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+      <script type="text/javascript" src="/lib/jquery-backstretch/jquery.backstretch.min.js"></script>
+      <script>
+      $(function() {
+        // Or, to start a slideshow, just pass in an array of images
+
+        $(".site-wrapper").backstretch("img/Party_Confetti2.jpg");
+      });
+      </script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-42080648-2', 'fullstackacademy.com');
+  ga('send', 'pageview');
+
+</script>
+
+
+  </body>
+</html>

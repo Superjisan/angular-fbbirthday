@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shortcut icon" href="images/favicon.png" type="image/png">
+
+  {% include '../includes/head.html' %}
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="js/html5shiv.js"></script>
+  <script src="js/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<body class="fixed fixed-noleft">
+
+<section>
+
+
+  <!-- Main Panel -->
+  <div class="mainpanel">
+
+    <!-- Pageheader -->
+    <div class="headerbar">
+      <div class="logopanel">
+        <h1 class="hidden-xs">
+          <a href="/"> Facebook Birthday App</a>
+          <span></span>
+        </h1>
+        <h1 class="visible-xs">
+          <span>[
+          </span> <a href="/">hire</a>
+          <span>]
+          </span></h1>
+      </div>
+
+      <div class="header-right">
+        <ul class="headermenu">
+          <li>
+            <div class="btn-group">
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                {{ req.user.name }}
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
+                {% if req.user && req.user.roles.indexOf('admin') !== -1 %}
+                <li><a href="/users/admin"><i class="glyphicon glyphicon-filter"></i>Admin screens</a></li>
+                {% endif %}
+                {% if req.user && req.user.roles.indexOf('employer') == -1 %}
+                <li><a href="/profile/me"><span class="glyphicon glyphicon-user"></span> My Profile</a></li>
+                <li><a href="/profile/edit"><i class="glyphicon glyphicon-user"></i> Edit Profile</a></li>
+                {% endif %}
+                {% if req.user && req.user.roles.indexOf('approved') !== -1 %}
+                  <li><a href="/users/tracking"> <i class="glyphicon glyphicon-stats"></i> Profile Tracker </a> </li>
+                {% endif %}
+                <li><a href="/interested"><i class="glyphicon glyphicon-user"></i> My Developers</a></li>
+                <li><a href="/signout"><i class="glyphicon glyphicon-log-out"></i> Log Out</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- end pageheader -->
+
+    <!-- Content Panel -->
+    <div class="contentpanel">
+      {% block content %}{% endblock %}
+    </div>
+    <!-- end content panel -->
+  </div>
+  <!-- end main panel -->
+
+</section>
+
+{% include '../includes/foot.html' %}
+{% block js_footer %}{% endblock %}
+<script type="text/javascript">
+
+
+  // hack to fix font loading - from: https://productforums.google.com/forum/#!topic/chrome/elw8busIfJA
+  $(function() { $('body').hide().show(); });
+
+</script>
+</body>
+</html>

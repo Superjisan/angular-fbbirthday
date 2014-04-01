@@ -110,7 +110,7 @@ exports.all = function(req, res) {
                         res.render('error', {status: 500})
                     } else {
                         callback(null, 'done')
-                        res.jsonp(friends)
+                        res.render('birthdays/today', {friends: friends, user: req.user ? JSON.stringify(req.user) : 'null'})
                     }
                 })
             }], function(err, result) {

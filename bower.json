@@ -14,7 +14,8 @@
     "jquery": "~2.1.0",
     "angular-bootstrap-datetimepicker": "latest",
     "angular-ui-calendar": "latest",
-    "jquery-ui": "~1.10.4"
+    "jquery-ui": "~1.10.4",
+    "jquery-backstretch": "~2.0.4"
   },
   "resolutions": {
     "angular": "1.2.14"

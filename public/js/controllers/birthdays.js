@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('fbbirthday.birthdays')
-  .controller('BirthdaysController', ['$scope', '$stateParams', '$location', 'Global', 'Birthdays', 'Friends',
+  .controller('BirthdaysController', ['$scope', '$stateParams', '$location', 'Global', 'Birthdays', 'Friends', '$window',
 
-  function($scope, $stateParams, $location, Global, Birthdays, Friends){
+  function($scope, $stateParams, $location, Global, Birthdays, Friends, $window){
     $scope.global = Global;
     $scope.limitct = 10;
 
@@ -12,15 +12,6 @@ angular.module('fbbirthday.birthdays')
           $scope.birthdays = birthdays
         })
       }
-
-    $scope.findOne = function(query){
-      // console.log("here");
-      // debugger;
-              $scope.friend = Friends.get({userId: $stateParams.facebookid })
-        // Birthdays.query(query, function(friend){
-        //     $scope.friend = friend;
-        // })
-      };
 
     $scope.isToday = function(birthday){
       var today = new Date()
@@ -39,6 +30,8 @@ angular.module('fbbirthday.birthdays')
       }
 
     };
+
+    $scope.friends = $window.friends
 
     $scope.thisWeek = function(birthday) {
       var today = new Date();
