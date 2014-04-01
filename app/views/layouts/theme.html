@@ -27,9 +27,9 @@
     <!-- Pageheader -->
     <div class="headerbar">
       <div class="logopanel">
-        <h3>
+        <h4>
           <a href="/">Birthday App</a>
-        </h3>
+        </h4>
 
       </div>
 
@@ -42,17 +42,7 @@
                 <span class="caret"></span>
               </button>
               <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
-                {% if req.user && req.user.roles.indexOf('admin') !== -1 %}
-                <li><a href="/users/admin"><i class="glyphicon glyphicon-filter"></i>Admin screens</a></li>
-                {% endif %}
-                {% if req.user && req.user.roles.indexOf('employer') == -1 %}
-                <li><a href="/profile/me"><span class="glyphicon glyphicon-user"></span> My Profile</a></li>
-                <li><a href="/profile/edit"><i class="glyphicon glyphicon-user"></i> Edit Profile</a></li>
-                {% endif %}
-                {% if req.user && req.user.roles.indexOf('approved') !== -1 %}
-                  <li><a href="/users/tracking"> <i class="glyphicon glyphicon-stats"></i> Profile Tracker </a> </li>
-                {% endif %}
-                <li><a href="/interested"><i class="glyphicon glyphicon-user"></i> My Developers</a></li>
+
                 <li><a href="/signout"><i class="glyphicon glyphicon-log-out"></i> Log Out</a></li>
               </ul>
             </div>
