@@ -7,7 +7,8 @@ module.exports = function(app) {
 
     app.get('/birthdays/data', birthday.exportFbData);
     app.get('/birthdays', birthday.all)
-
-    app.get('/birthdays/today', birthday.all)
+    app.get('/birthdays/week', birthday.week)
+    app.get('/birthdays/month', birthday.month)
+    app.get('/birthdays/today', birthday.today)
     app.get('/birthdays/friends/:facebookid', birthday.show )
 };

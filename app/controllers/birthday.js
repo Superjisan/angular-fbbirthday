@@ -110,6 +110,33 @@ exports.all = function(req, res) {
                         res.render('error', {status: 500})
                     } else {
                         callback(null, 'done')
+                        res.render('birthdays/all', {friends: friends, user: req.user ? JSON.stringify(req.user) : 'null'})
+                    }
+                })
+            }], function(err, result) {
+                if (err) {console.log(err)}
+            })
+}
+
+exports.today = function(req, res) {
+    //the req.user.fb_id was having some trouble processing at times so I made it async
+    async.waterfall([
+        function(callback) {
+            if (req.user) {
+            var user = req.user
+            // console.log(user)
+            var fb_id = user.fb_id
+            // console.log(fb_id)
+            callback(null,fb_id)
+            }
+        },
+        function(fb_id, callback) {
+            Birthday.find({"user_id" : fb_id},
+                function(err, friends){
+                    if (err) {
+                        res.render('error', {status: 500})
+                    } else {
+                        callback(null, 'done')
                         res.render('birthdays/today', {friends: friends, user: req.user ? JSON.stringify(req.user) : 'null'})
                     }
                 })
@@ -118,4 +145,57 @@ exports.all = function(req, res) {
             })
 }
 
+exports.week = function(req, res) {
+    //the req.user.fb_id was having some trouble processing at times so I made it async
+    async.waterfall([
+        function(callback) {
+            if (req.user) {
+            var user = req.user
+            // console.log(user)
+            var fb_id = user.fb_id
+            // console.log(fb_id)
+            callback(null,fb_id)
+            }
+        },
+        function(fb_id, callback) {
+            Birthday.find({"user_id" : fb_id},
+                function(err, friends){
+                    if (err) {
+                        res.render('error', {status: 500})
+                    } else {
+                        callback(null, 'done')
+                        res.render('birthdays/week', {friends: friends, user: req.user ? JSON.stringify(req.user) : 'null'})
+                    }
+                })
+            }], function(err, result) {
+                if (err) {console.log(err)}
+            })
+}
+
+exports.month = function(req, res) {
+    //the req.user.fb_id was having some trouble processing at times so I made it async
+    async.waterfall([
+        function(callback) {
+            if (req.user) {
+            var user = req.user
+            // console.log(user)
+            var fb_id = user.fb_id
+            // console.log(fb_id)
+            callback(null,fb_id)
+            }
+        },
+        function(fb_id, callback) {
+            Birthday.find({"user_id" : fb_id},
+                function(err, friends){
+                    if (err) {
+                        res.render('error', {status: 500})
+                    } else {
+                        callback(null, 'done')
+                        res.render('birthdays/month', {friends: friends, user: req.user ? JSON.stringify(req.user) : 'null'})
+                    }
+                })
+            }], function(err, result) {
+                if (err) {console.log(err)}
+            })
+}
 

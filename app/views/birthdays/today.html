@@ -1,0 +1,90 @@
+{% extends '../layouts/theme.html' %}
+{% block content %}
+
+<div ng-controller="BirthdaysController" >
+
+
+    <div class="col-md-3 col-lg-3" style="padding-left:0px">
+      <input type="text" class="form-control" name="keyword" placeholder="Search" ng-model="search.name"/>
+    </div>
+
+    <br><br>
+      <div class="people-list friend_box">
+        <div masonry load-images="false" class="row" ng-cloak>
+
+          <div ng-repeat="friend in friends | filter: search " ng-cloak class ="masonry-brick col-md-6" ng-if="isToday(friend.birthday)">
+          <div >
+
+            <div class="people-item">
+              <div class="media">
+                <a href="#" class="pull-left"></a>
+
+                <div class="media-body">
+                  <div class="pull-right" >
+                    <img class='img-responsive profile-img' src="[[friend.image.data.url]]" />
+
+                  </div>
+                    <a href="">
+                    <h4 class="person-name">[[friend.name]]</h4> </a>
+                    <div class="col-md-7">
+                    <form action="/schedules/new" method="post">
+
+                            <div class="dropdown">
+                              <a class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" data-target="#" href="#">
+                                <div class="input-group">
+                                  <input type="text" class="form-control ng-pristine ng-valid" data-ng-model="data.dateDropDownInput" name="date" placeholder="time to send message">
+                                  <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                </div>
+                              </a>
+                              <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                <datetimepicker data-ng-model="data.dateDropDownInput" data-datetimepicker-config="{ dropdownSelector: '#dropdown1' }" style="z-index:999;"> </datetimepicker>
+                              </ul>
+                            </div>
+                          <textarea type="text" class="form-control" placeholder="Message To Send Later" name="message" value="Happy Birthday [[friend.name]]!"> </textarea>
+
+                          <!-- Hidden elements to pass to backend ; friend_id, friend_name -->
+                          <span> <input ng-hide="global.authenticated" type="textarea" class="form-control" placeholder="message to send" name="friend_name" value="[[friend.name]]">  </span>
+                          <span> <input ng-hide="global.authenticated" type="textarea" class="form-control" placeholder="message to friend" name="friend_id" value="[[friend.fb_id]]">  </span>
+                          <button id="send_later" type="submit" class="btn btn-success glyphicon glyphicon-time"> Schedule Message</button>
+
+
+                      </form>
+                      </div>
+                    <br> <br> <br>
+                    <div class="col-md-7">
+                      <br><!-- fbchat -->
+                     <form  action="/fbchat" method="POST" name='birthdayForm'>
+                  <!-- inputs that gets passed to backend -->
+                        <span> <input id="chat_message"
+                          type="text" class="form-control" placeholder="Message to friend" name="message" > </span>
+                        <span> <input ng-hide="global.authenticated" type="text" class="form-control" placeholder="Message to friend" name="friend_name" value="[[friend.name]]">  </span>
+                        <span> <input ng-hide="global.authenticated" type="text" class="form-control" placeholder="Text input" name="friend_bday" value="[[friend.birthday]]">  </span>
+
+                          <span> <button  type="submit" class="icon-chat btn btn-success"> <i class="fa fa-comments"></i> Send Now</button> </span>
+                      </form>
+                    </div> <!-- fbchat -->
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+        </div><!-- row -->
+      </div><!-- people-list -->
+
+    </div><!-- Developer Controller -->
+  </div><!-- contentpanel -->
+
+
+
+
+
+
+ <script type="text/javascript">
+        window.user = {{user|safe}}
+        window.friends = {{friends|json|safe}}
+</script>
+{% endblock %}
+

@@ -16,22 +16,60 @@
   <![endif]-->
 </head>
 
-<body class="fixed fixed-noleft">
+<body class="">
 
 <section>
 
+  <div class="leftpanel">
+
+    <div class="logopanel">
+        <h5><span>[</span> Jisan's Birthday Messenger App <span>]</span></h5>
+    </div><!-- logopanel -->
+
+    <div class="leftpanelinner">
+
+        <!-- This is only visible to small devices -->
+        <div class="visible-xs hidden-sm hidden-md hidden-lg">
+            <div class="media userlogged">
+                <img alt="" src="images/photos/loggeduser.png" class="media-object">
+                <div class="media-body">
+                    <h4>John Doe</h4>
+                    <span>"Life is so..."</span>
+                </div>
+            </div>
+
+            <h5 class="sidebartitle actitle">Account</h5>
+            <ul class="nav nav-pills nav-stacked nav-bracket mb30">
+              <li><a href="profile.html"><i class="fa fa-user"></i> <span>Profile</span></a></li>
+              <li><a href=""><i class="fa fa-cog"></i> <span>Account Settings</span></a></li>
+              <li><a href=""><i class="fa fa-question-circle"></i> <span>Help</span></a></li>
+              <li><a href="signout.html"><i class="fa fa-sign-out"></i> <span>Sign Out</span></a></li>
+            </ul>
+        </div>
+
+      <h5 class="sidebartitle">Navigation</h5>
+      <ul class="nav nav-pills nav-stacked nav-bracket">
+        <li><a href="/"><i class="fa fa-home"></i> <span>Home</span></a></li>
+        <li class="nav-parent nav-active active"><a href="/schedules"><i class="fa fa-calendar"></i> <span>Scheduled Messages</span></a>
+        </li>
+        <li class="nav-parent"><a href=""><i class="fa fa-file-text"></i> <span>Birthdays</span></a>
+          <ul class="children">
+            <li><a href="/birthdays/today"><i class="fa fa-caret-right"></i> Today</a></li>
+            <li><a href="/birthdays/today"><i class="fa fa-caret-right"></i> This Week</a></li>
+          </ul>
+        </li>
+
+      </ul>
+
+    </div><!-- leftpanelinner -->
+  </div><!-- leftpanel -->
 
   <!-- Main Panel -->
   <div class="mainpanel">
 
     <!-- Pageheader -->
     <div class="headerbar">
-      <div class="logopanel">
-        <h4>
-          <a href="/">Birthday App</a>
-        </h4>
 
-      </div>
 
       <div class="header-right">
         <ul class="headermenu">
