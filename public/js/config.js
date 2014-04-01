@@ -8,10 +8,7 @@ angular.module('fbbirthday').config(['$stateProvider', '$urlRouterProvider',
 
     // states for my app
     $stateProvider
-        .state('friend birthday age', {
-          url: '/birthdays/friends/:facebookid',
-          templateUrl: 'views/birthdays/friend.html'
-        })
+
         .state('birthdays this month', {
           url: '/birthdays/this_month',
           templateUrl: 'views/birthdays/this_month.html'

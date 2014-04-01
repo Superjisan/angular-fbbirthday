@@ -6,5 +6,5 @@ module.exports = function(app) {
     //var users = require('../controllers/users');
     var index = require('../controllers/index');
     app.get('/', index.render);
-
+    app.get('/home', index.home)
 };

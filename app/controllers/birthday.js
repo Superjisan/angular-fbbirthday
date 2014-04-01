@@ -45,7 +45,7 @@ exports.exportFbData = function(req, res){
             else {
                 console.log("Mongoose already have "+ ownerName +"'s friends' birthday data.");
             }
-            res.redirect('/#!/birthdays/today');
+            res.redirect('/birthdays/today');
         });
     });
 
@@ -73,7 +73,7 @@ exports.show = function(req, res){
                         res.render('error', {status: 500})
                     } else {
                         callback(null, 'done')
-                        res.jsonp(friend)
+                        res.render('birthdays/friend', {friend: friend, user: req.user, noImg : 'img/No-Image.png'})
                     }
                 })
             }], function(err, result) {

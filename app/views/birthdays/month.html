@@ -1,0 +1,38 @@
+{% extends '../layouts/theme.html' %}
+{% block content %}
+<div ng-controller="BirthdaysController" >
+ <div class="col-md-6">
+          <h5 class="subtitle mb5">This Week's Birthday</h5>
+
+          <div class="table-responsive">
+          <table class="table table-striped mb30">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Birthdate</th>
+                <th>Schedule Messages</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="friend in friends" ng-if="thisMonth(friend.birthday)" >
+                <th>[[$index + 1]]</th>
+                <td><a href="/birthdays/friends/[[friend.fb_id]]">[[friend.name]]</a></td>
+                <td>[[friend.birthday]]</td>
+                <td><a id="send_later" type="submit" class="btn btn-success" href="/birthdays/friends/[[friend.fb_id]]"> Schedule Messages</a></td>
+              </tr>
+
+            </tbody>
+          </table>
+          </div><!-- table-responsive -->
+        </div><!-- col-md-6 -->
+</div> <!-- Birthday Controller-->
+
+
+
+
+ <script type="text/javascript">
+        window.user = {{user|safe}}
+        window.friends = {{friends|json|safe}}
+</script>
+{% endblock %}

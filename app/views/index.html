@@ -1,6 +1,61 @@
 {% extends 'layouts/cover.html' %}
 {% block pagecontent %}
-    <section data-ui-view />
+    {% if !req.user %}
+      <div class="inner cover ">
+          <h1 class="">Jisan's Facebook Birthday App</h1>
+          <p class=""> A simple way to schedule personal messages to friends on their special day!</p>
+          <p class="lead">
+            <a href="/auth/facebook" class="btn btn-lg btn-default btn-social btn-facebook">
+              <i class="fa fa-facebook"></i> Sign In With Facebook</a>
+          </p>
+          <div class="mastfoot">
+          <div class="inner">
+            <p>This app is still in development, please e-mail jzthegreat@gmail.com if you want access to it.</p>
+          </div>
+          </div>
+      </div>
+    {% else %}
+    <section>
+    <div class="mainpanel">
+
+            <div class="inner cover">
+              <br><br><br>
+              <div class="panel panel-default text-left " ng-show="{{global.authenticated}}">
+
+                <h1> Application Info</h1>
+                <p> This App is built on Node.JS and it uses Angular, MongoDB, Express, Facebook Graph API, XMPP, Cron.
+
+                    If you are interested, here's the code on GitHub. (github image)
+
+                    What this app is great for: If you have a boring day in front of you, why not take a few moments to write thoughtful messages to your friends for their birthdays and schedule to send it to them on their birthday.
+
+                    This app will send a personal message using Facebook's chat functionality to any of your friends. It's great for never forgetting to remember another person's birthday. (chat)
+
+                   <!--  <h3>Limitations </h3>
+
+                    <span>1. Some users do not share their personal data on Facebook. You will not have access to their birthdates. </span> <br>
+
+                    <span>2. This app does not let you post on others' walls. You have Facebook for that and recently Facebook took away the functionality to post to others walls automatically from a third party application. </span> <br>
+
+                    <span>3. Currently, you cannot stop a message after you scheduled it.</span> <br>
+ -->
+                </p>
+
+                    <p> <h1>Future Functionality </h1>
+                        <span>1. You can manually add a person's birthday on here if they don't already have it. (database insertion). </span> <br>
+                        <span>2.Subscription to e-mail functionality reminding you everyday whose birthday it is. (e-mail) </span> <br>
+                        <span>3. Ability to cancel future jobs. (cancel logo) </span> <br>
+                        <span>4. Ability to edit future messages.</span> <br>
+                    </p>
+            </div>
+            </div>
+          </div>
+        </section>
+    {% endif %}
+
+
+
+
     <script type="text/javascript">
         window.user = {{user|safe}}
     </script>

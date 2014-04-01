@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('fbbirthday.birthdays')
-  .controller('BirthdaysController', ['$scope', '$stateParams', '$location', 'Global', 'Birthdays', 'Friends', '$window',
+  .controller('BirthdaysController', ['$scope', '$stateParams', '$location', 'Global', 'Birthdays','$window',
 
-  function($scope, $stateParams, $location, Global, Birthdays, Friends, $window){
+  function($scope, $stateParams, $location, Global, Birthdays, $window){
     $scope.global = Global;
     $scope.limitct = 10;
 
@@ -22,6 +22,8 @@ angular.module('fbbirthday.birthdays')
       return today.toDateString() == temp.toDateString();
     };
 
+    $scope.noImage = "img/No-Image.png"
+
     $scope.hasBirthday = function(birthday){
       if (birthday) {
         return true
@@ -31,7 +33,8 @@ angular.module('fbbirthday.birthdays')
 
     };
 
-    $scope.friends = $window.friends
+    $scope.friends = $window.friends;
+    $scope.friend = $window.friend;
 
     $scope.thisWeek = function(birthday) {
       var today = new Date();
