@@ -15,10 +15,10 @@ URL: http://themepixels.com/
 @import url('roboto.css');
 
 body {
-   background: #1d2939;
+   background: #000000;
    font-family: 'LatoRegular', 'Lucida Grande', 'Lucida Sans Unicode', Helvetica, sans-serif !important;
    line-height: 21px;
-   color: #636e7b;
+   color: #800E2D;
 
 }
 
@@ -678,7 +678,7 @@ strong {
 
 .mainpanel {
    margin-left: 240px;
-   background: #e4e7ea;
+   background: #CEE0F1;
    min-height: 1000px;
 }
 
@@ -2576,7 +2576,7 @@ div.error label.error:before {
 }
 
 .people-item {
-	background: #fcfcfc;
+	background: #F5F9FA;
 	padding: 20px;
 	font-size: 13px;
 	-moz-border-radius: 3px;
