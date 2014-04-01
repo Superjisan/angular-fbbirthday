@@ -73,18 +73,18 @@ list-style-type: none;
 }*/
 
 #friend_box {
-  padding: 15px 15px 15px 15px;
+ /* padding: 15px 15px 15px 15px;
   margin: 10px 10px 10px 10px;
-  /*display: inline-block;*/
+
   background-color: #732C7B;
 
   -moz-border-radius: 20px;
   -webkit-border-radius: 20px;
   color: black;
   font-size: 20px;
-  text-align: center;
-  /*overflow: scroll;*/
-  z-index: 1;
+  text-align: center;*/
+
+  z-index: 999;
   display: block;
 }
 

@@ -36,10 +36,7 @@ angular.module('fbbirthday').config(['$stateProvider', '$urlRouterProvider',
         url:'/birthdays',
         templateUrl: 'views/birthdays/list.html'
       })
-      .state('friend b-day today', {
-        url: '/birthdays/today',
-        templateUrl: 'views/birthdays/dayselect.html'
-      })
+
       .state('home', {
         url: '/',
         templateUrl: 'views/index.html'
