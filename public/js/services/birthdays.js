@@ -2,7 +2,7 @@
 
 angular.module('fbbirthday.birthdays').factory('Birthdays', ['$resource',
   function($resource) {
-    return $resource('birthdays/:userId', {
+    return $resource('api/birthdays', {
         userId: '@_id'
     }, {
         update: {

@@ -68,7 +68,7 @@ exports.FbMessage = function (req, res) {
       }
     ], function(err, result) {
        if (err) {console.log(err)}
-          res.redirect('/#!/birthdays')
+          res.jsonp({ sent: 'Message Sent'})
         })
 }
 

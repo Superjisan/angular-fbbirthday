@@ -27,7 +27,7 @@ exports.all = function(req, res) {
                         res.render('error', {status: 500})
                     } else {
                         callback(null, 'done')
-                        res.jsonp(messages)
+                        res.render('schedule', {messages: messages})
                     }
                 })
             }], function(err, result) {
@@ -117,7 +117,7 @@ async.waterfall([
 
   function(err, results) {
     if (err) { console.log(err)}
-    res.redirect('/#!/schedules')
+    res.redirect('/schedules')
   })
 
 }

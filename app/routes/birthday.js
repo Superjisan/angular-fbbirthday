@@ -11,4 +11,5 @@ module.exports = function(app) {
     app.get('/birthdays/month', birthday.month)
     app.get('/birthdays/today', birthday.today)
     app.get('/birthdays/friends/:facebookid', birthday.show )
+    app.get('/api/birthdays', birthday.apiBirthdays)
 };

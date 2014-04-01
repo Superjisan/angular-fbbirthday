@@ -1,0 +1,40 @@
+{% extends 'layouts/theme.html' %}
+{% block content %}
+ <div class="read-panel">
+
+    <h1> Application Info</h1>
+    <p> This App is built on Node.JS and it uses Angular, MongoDB, Express, Facebook Graph API, XMPP, Cron. <br><br>
+
+        If you are interested, here's the code on <a href="https://github.com/Superjisan/angular-fbbirthday">GitHub. <i class="fa fa-github"></i></a>
+        <br><br>
+
+        What this app is great for: If you have a boring day in front of you, why not take a few moments to write thoughtful messages to your friends for their birthdays and schedule to send it to them on their birthday.
+        <br><br>
+        This app will send a personal message using Facebook's chat functionality to any of your friends. It's great for never forgetting to remember another person's birthday. <i class="fa fa-comments"> </i>
+
+       <!--  <h3>Limitations </h3>
+
+        <span>1. Some users do not share their personal data on Facebook. You will not have access to their birthdates. </span> <br>
+
+        <span>2. This app does not let you post on others' walls. You have Facebook for that and recently Facebook took away the functionality to post to others walls automatically from a third party application. </span> <br>
+
+        <span>3. Currently, you cannot stop a message after you scheduled it.</span> <br>
+-->
+    </p>
+
+        <p> <h1>Future Functionality </h1>
+            <span>1. <i class="fa fa-sign-in"> </i> You can manually add a person's birthday on here if they don't already have it. </span> <br>
+            <span>2. <i class="fa fa-envelope"> </i> Subscription to e-mail functionality reminding you everyday whose birthday it is.  </span> <br>
+            <span>3. <i class="fa fa-times-circle"> </i>Ability to cancel future jobs.  </span> <br>
+            <span>4. <i class="fa fa-pencil-square"> </i> Ability to edit future messages.</span> <br>
+        </p>
+
+    <br />
+
+
+</div> <!--read-panel -->
+<script type="text/javascript">
+        window.user = {{user|safe}}
+        window.friends = {{friends|json|safe}}
+</script>
+{% endblock %}

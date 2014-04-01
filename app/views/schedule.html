@@ -1,0 +1,41 @@
+{% extends 'layouts/theme.html' %}
+{% block content %}
+<div ng-controller="MessagesController" >
+ <div class="col-md-6">
+          <h5 class="subtitle mb5">This Week's Birthday</h5>
+
+          <div class="table-responsive">
+          <table class="table table-striped mb30">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Friend</th>
+                <th>Time to send</th>
+                <th>Message Text</th>
+                <th>Was Message Sent</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="message in messages track by $index">
+                <th>[[$index + 1]]</th>
+                <td>[[message.to_friend_name]]</td>
+                <td>[[message.time_scheduled]]</td>
+                <td>[[message.message]]</td>
+                <td ng-show="message.sent">SENT</td>
+                <td ng-hide="message.sent">NOT YET SENT</td>
+              </tr>
+
+            </tbody>
+          </table>
+          </div><!-- table-responsive -->
+        </div><!-- col-md-6 -->
+</div> <!-- Birthday Controller-->
+
+
+
+
+ <script type="text/javascript">
+        window.user = {{user|safe}}
+        window.messages = {{messages|json|safe}}
+</script>
+{% endblock %}
