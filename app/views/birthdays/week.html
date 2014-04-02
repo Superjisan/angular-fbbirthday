@@ -8,15 +8,15 @@
           <table class="table table-striped mb30">
             <thead>
               <tr>
-                <th>#</th>
+
                 <th>Name</th>
                 <th>Birthdate</th>
                 <th>Schedule Messages</th>
               </tr>
             </thead>
             <tbody>
-              <tr ng-repeat="friend in friends" ng-if="thisWeek(friend.birthday)" >
-                <th>[[$index + 1]]</th>
+              <tr ng-repeat="friend in friends | orderBy:predicate:reverse " ng-if="thisWeek(friend.birthday)" >
+
                 <td><a href="/birthdays/friends/[[friend.fb_id]]">[[friend.name]]</a></td>
                 <td>[[friend.birthday]]</td>
                 <td><a id="send_later" type="submit" class="btn btn-success" href="/birthdays/friends/[[friend.fb_id]]"> Schedule Messages</a></td>
@@ -32,7 +32,7 @@
 
 
  <script type="text/javascript">
-        window.user = {{user|safe}}
-        window.friends = {{friends|json|safe}}
+    window.user = {{user|safe}}
+    window.friends = {{friends|json|safe}}
 </script>
 {% endblock %}

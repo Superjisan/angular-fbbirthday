@@ -36,6 +36,8 @@ angular.module('fbbirthday.birthdays')
     $scope.friends = $window.friends;
     $scope.friend = $window.friend;
 
+    $scope.predicate = 'birthday'
+
     $scope.thisWeek = function(birthday) {
       var today = new Date();
       today.setYear(0)
