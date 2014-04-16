@@ -1,6 +1,6 @@
 # Jisan's Facebook Birthday App
 
-This app is hosted at [this link](http://fb-birthday.herokuapp.com) It is aan app that lets you see your facebook friends' birthdays and send direct messages to them using XMPP/Facebook's chat platform.
+This app is hosted at [this link](http://fb-birthday.herokuapp.com). It is an app that lets you see your facebook friends' birthdays and send direct messages to them using XMPP/Facebook's chat platform.
 
 You can also schedule birthday messages at a later time.
 
